@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Board",
-  "updatedAt": "2026-10-22T18:23:14+03:00",
+  "updatedAt": "2026-10-22T18:23:57+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -626,6 +626,10 @@
   ],
   "log": [
     {
+      "t": "Oct 22 18:25",
+      "e": "Board now tracks the full book: 34 chapters, 885 dishes, 227 book flavours and extra flavours (Command Room + Spider)"
+    },
+    {
       "t": "Oct 22 18:23",
       "e": "Inspired-by credit line added under every recipe title, plus a no-affiliation note in the footer (live on test site). Still 103 of 885 dishes, 22 of 227 book flavours; no new recipes since 17:28"
     },
@@ -791,7 +795,7 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T18:23:14+03:00",
+    "at": "2026-10-22T18:23:57+03:00",
     "from": "rw/tami_manifest.json + public-site/content (read-only)",
     "recipesOnSite": 125,
     "chaptersComplete": 3

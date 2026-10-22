@@ -82,6 +82,14 @@ body.B .seg button[aria-pressed="true"]{background:#3dff8f}
 .flow{stroke-dasharray:4 6;animation:flw 1.4s linear infinite}
 @keyframes flw{to{stroke-dashoffset:-20}}
 .agrid{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+.chg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 10px}
+.chg .cb{display:grid;grid-template-columns:16px minmax(0,1fr) auto;column-gap:5px;align-items:baseline;font-size:9.5px;line-height:1.25}
+.chg .n{color:#55555f}.chg .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cfcfd6}
+.chg .cb.waiting .t{color:#77778a}
+.chg b{color:var(--c);font-weight:700}.chg .cb.waiting b{color:#55555f}
+.chg .tr{grid-column:2/4;height:3px;background:#1d1d23;border-radius:2px;overflow:hidden;margin:2px 0 1px}
+.chg .tr i{display:block;height:100%;width:0;background:var(--c);box-shadow:0 0 6px var(--c);transition:width 1.2s ease}
+.chg em{grid-column:2/4;font-style:normal;font-size:8.5px;color:#66666f;height:10px}
 .chart svg{display:block;width:100%;height:auto}
 .term{background:#050507!important;border-color:#1f3a2a!important}
 .term .pt{color:var(--gn)}
@@ -162,16 +170,16 @@ body.B .seg button[aria-pressed="true"]{background:#3dff8f}
 .ds div em{font-style:normal;background:var(--pk);color:#000;padding:0 4px;border-radius:2px;font-weight:700;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ds div em.g{background:var(--gn)}.ds div em.y{background:var(--yl)}
 .ds div span{color:#cfcfd6;overflow-wrap:anywhere}
-.vb{display:flex;align-items:flex-end;gap:8px;height:130px;padding-top:14px}
+.vb{display:flex;align-items:flex-end;gap:2px;height:130px;padding-top:6px}
 .vb div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;min-width:0}
 .vb .col{width:100%;max-width:38px;flex:1;position:relative;background:#18181c;border-radius:2px;overflow:hidden;display:flex;align-items:flex-end}
 .vb .col i{display:block;width:100%;background:linear-gradient(var(--gn),rgba(61,255,143,.35));height:0;transition:height 1.2s ease}
 .vb .col.p i{background:linear-gradient(var(--pk),rgba(255,59,107,.35))}
-.vb small{font-size:9px;color:#888;white-space:nowrap}
+.vb small{font-size:7px;color:#777;white-space:nowrap}
 .vb b{font-size:9.5px;color:#ddd}
-.dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(9px,1fr));gap:3px}
+.dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(6px,1fr));gap:2px}
 .dots i{aspect-ratio:1;border-radius:50%;background:#1e1e24}
-.dots i.d{background:var(--gn);box-shadow:0 0 4px rgba(61,255,143,.7)}
+.dots i.d{background:var(--gn)}
 .dots i.p{background:var(--pk)}
 .dots i.cs{outline:1px solid #333;outline-offset:0}
 .globe canvas{display:block;width:100%;max-width:240px;aspect-ratio:1;margin:0 auto}
@@ -195,7 +203,8 @@ body.B .toast small{color:#3dff8f}
   .kpis{gap:10px}.kpi{padding:10px}.kpi .kn{font-size:11px}.kpi .kv{font-size:20px}.kpi .ks{font-size:10px}
   #A .hdr h1{font-size:22px}
   #A .hdr .tm b{font-size:20px}
-  .agrid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);grid-template-areas:"room room side" "chart log graph"}
+  .agrid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);grid-template-areas:"room room side" "chaps chaps chaps" "chart log graph"}
+  .a-chaps{grid-area:chaps}.chg{grid-template-columns:repeat(4,minmax(0,1fr))}
   .a-room{grid-area:room}.a-side{grid-area:side}.a-chart{grid-area:chart}.a-log{grid-area:log}.a-graph{grid-area:graph}
   .bub{font-size:11px}.bub small{font-size:9.5px}
   .tl{max-height:300px}
@@ -223,7 +232,7 @@ body.B .toast small{color:#3dff8f}
 <div id="A" class="wrap">
   <header class="hdr">
     <div class="lg"></div>
-    <div><h1>JARVIS + CLAUDE CODE</h1><small id="aSub">Joe's launch · live board</small></div>
+    <div><h1>JARVIS + CLAUDE CODE</h1><small id="aSub">full book · live</small></div>
     <div class="tm"><b id="aClock">--:--</b><span id="aDate">CAIRO</span></div>
   </header>
   <div class="kpis" id="aKpis"></div>
@@ -232,12 +241,13 @@ body.B .toast small{color:#3dff8f}
       <div class="rt" id="aTicker"></div>
       <div class="stage" id="aStage"></div>
     </section>
+    <section class="pnl a-chaps" id="aChaps"><div class="pt">34 chapters <span id="aChapsM"></span></div><div class="chg" id="aChapsL"></div></section>
     <div class="a-side" id="aSide">
       <a class="sitebtn" id="aSite" href="#" target="_blank" rel="noopener"><div style="min-width:0"><b>Test site</b><span id="aSiteU"></span></div><em>OPEN ↗</em></a>
       <section class="pnl" id="aRun"><div class="pt">Running <span id="aRunN"></span></div><div class="lst" id="aRunL"></div></section>
       <section class="pnl" id="aWait" style="margin-top:10px"><div class="pt">Waiting <span id="aWaitN"></span></div><div class="lst" id="aWaitL"></div></section>
     </div>
-    <section class="pnl chart a-chart" id="aChart"><div class="pt">Recipes over time <span id="aChartM"></span></div><div id="aChartS"></div></section>
+    <section class="pnl chart a-chart" id="aChart"><div class="pt">Written over time <span id="aChartM"></span></div><div id="aChartS"></div></section>
     <section class="pnl term a-log" id="aLog"><div class="pt">jarvis.log <span id="aLogN"></span></div><div class="tl" id="aLogL"></div><div style="color:#39ff7a;margin-top:5px">jarvis@board:~$ <span class="cur"></span></div></section>
     <section class="pnl a-graph" id="aGraph"><div class="pt">Node graph <span id="aGraphM"></span></div><div id="aGraphS"></div></section>
   </div>
@@ -246,22 +256,22 @@ body.B .toast small{color:#3dff8f}
 <!-- ======================= B: SPIDER ======================= -->
 <div id="B" class="wrap" hidden>
   <header class="hdr">
-    <div><h1>JARVIS SPIDER <em>// EVERY DISH, ONE THREAD</em></h1><p>each launch recipe is a thread · green written · pink in progress · grey waiting</p></div>
+    <div><h1>JARVIS SPIDER <em>// EVERY DISH, ONE THREAD</em></h1><p>each dish of the book is a thread · green complete · pink in progress · grey waiting</p></div>
     <div class="cnt" id="bCnt"></div>
   </header>
   <div class="mapw" style="position:relative"><section class="map" id="bMap">
     <canvas id="bCv"></canvas>
-    <div class="ed"><div class="eh"><i></i><i></i><i></i>&nbsp;launch.scope<span id="bLn"></span></div><div class="eb" id="bEb"></div></div>
+    <div class="ed"><div class="eh"><i></i><i></i><i></i>&nbsp;book.scope<span id="bLn"></span></div><div class="eb" id="bEb"></div><div class="scan"></div></div>
     <div class="focal" id="bFocal"></div>
     <div id="bChips"></div>
   </section>
   <div class="cards" id="bCards"></div></div>
   <div class="bgrid">
     <section class="pnl b-ds" id="bDs"><div class="pt">decision stream <span>time · event · log</span></div><div class="ds" id="bDsL"></div></section>
-    <section class="pnl big b-big" id="bBig"><div class="pt">recipes written <span id="bBigM"></span></div><b id="bBigN">0</b><p id="bBigP"></p><div id="bBigB"></div></section>
-    <section class="pnl b-bars" id="bBars"><div class="pt">per chapter <span>written / total</span></div><div class="vb" id="bVb"></div></section>
-    <section class="pnl b-dots" id="bDots"><div class="pt">launch recipes <span id="bDotsM"></span></div><div class="dots" id="bDotsG"></div></section>
-    <section class="pnl globe b-globe" id="bGlobe"><div class="pt">launch coverage <span id="bGlobeM"></span></div><canvas id="bGl" width="240" height="240"></canvas></section>
+    <section class="pnl big b-big" id="bBig"><div class="pt">dishes written <span id="bBigM"></span></div><b id="bBigN">0</b><p id="bBigP"></p><div id="bBigB"></div></section>
+    <section class="pnl b-bars" id="bBars"><div class="pt">per chapter <span>dishes written, 01–34</span></div><div class="vb" id="bVb"></div></section>
+    <section class="pnl b-dots" id="bDots"><div class="pt">all dishes <span id="bDotsM"></span></div><div class="dots" id="bDotsG"></div></section>
+    <section class="pnl globe b-globe" id="bGlobe"><div class="pt">book coverage <span id="bGlobeM"></span></div><canvas id="bGl" width="240" height="240"></canvas></section>
   </div>
   <div class="ft" id="bFt"></div>
 </div>
@@ -309,11 +319,22 @@ function model(d){
   const ch = d.chapters || [];
   const done = d.headline?.done ?? ch.reduce((a, c) => a + c.done, 0);
   const total = d.headline?.total ?? ch.reduce((a, c) => a + c.total, 0);
+  const fl = d.flavours || {done: ch.reduce((a, c) => a + (c.flavours?.done || 0), 0), total: ch.reduce((a, c) => a + (c.flavours?.total || 0), 0)};
+  const ex = d.extraFlavours?.done ?? ch.reduce((a, c) => a + (c.extra || 0), 0);
   const inProg = new Set(d.dishesInProgress || []);
-  const dishes = (d.dishes || []).map(x => ({...x, st: x.status === "done" ? "done" : (x.status === "partial" || inProg.has(x.slug)) ? "prog" : "waiting"}));
+  const byNo = Object.fromEntries(ch.map(c => [c.no, c]));
+  // dishes: compact rows {s slug, n name, c chapter no, b base written, f [flavours done, total], x extras}
+  const dishes = (d.dishes || []).map(x => {
+    const full = x.b && x.f[0] >= x.f[1];
+    const st = full ? "done" : (x.b || x.f[0] || x.x || inProg.has(x.s)) ? "prog" : "waiting";
+    return {slug: x.s, name: x.n, no: x.c, chapter: byNo[x.c]?.name || "", base: !!x.b, f: x.f, x: x.x || 0, st};
+  });
   const ks = d.knowledge?.stats || {};
-  const chSt = c => c.total && c.done >= c.total ? "done" : (c.done > 0 || c.name === d.focus) ? "prog" : "waiting";
-  return {ch, done, total, P: pct(done, total), dishes, ks, chSt,
+  const cFull = c => c.total && c.done >= c.total && (!c.flavours || c.flavours.done >= c.flavours.total);
+  const chSt = c => cFull(c) ? "done" : (c.done > 0 || c.name === d.focus) ? "prog" : "waiting";
+  const focus = ch.find(c => c.name === d.focus) || null;
+  return {ch, done, total, P: pct(done, total), fl, ex, dishes, ks, chSt, cFull, focus,
+    chDone: ch.filter(cFull).length,
     run: d.running || [], wait: d.waiting || [], log: d.log || [], hist: d.history || [],
     joeWait: (d.waiting || []).filter(w => /joe/i.test(w.owner || "")).length};
 }
@@ -364,7 +385,7 @@ function roomSVG(d, M){
   const mx = Math.max(1, ...hist.map(h => h.recipes));
   const sp = hist.map((h, i) => [10 + (sw - 20) * (hist.length > 1 ? i / (hist.length - 1) : 1), sh - 8 - (sh - 34) * h.recipes / mx]);
   s += `<g transform="${wallR(60, 108)}"><rect width="${sw}" height="${sh}" fill="#05070a" stroke="#22e1ff" stroke-width="1.4" style="filter:drop-shadow(0 0 5px #22e1ff)"/>
-    <text x="10" y="16" fill="#22e1ff" font-size="10" font-weight="800" font-family="monospace">RECIPES ${M.done}/${M.total} · ${M.P}%</text>
+    <text x="10" y="16" fill="#22e1ff" font-size="10" font-weight="800" font-family="monospace">DISHES ${M.done}/${M.total} · ${M.P}%</text>
     <polyline points="${pts(sp)}" fill="none" stroke="#39ff7a" stroke-width="1.6"/>
     <circle cx="${sp[sp.length-1][0]}" cy="${sp[sp.length-1][1]}" r="2.4" fill="#39ff7a"/></g>`;
   // left wall: J+C sign and knowledge base board (real counts)
@@ -375,17 +396,17 @@ function roomSVG(d, M){
     <text x="8" y="15" fill="#ffe14d" font-size="9" font-weight="800" font-family="monospace">KNOWLEDGE BASE</text>
     <text x="8" y="30" fill="#e8e8ee" font-size="8.5" font-family="monospace">${kv.files ?? "–"} files · ${kv.techniques ?? "–"} techniques</text>
     <text x="8" y="44" fill="#22e1ff" font-size="8.5" font-family="monospace">${kv.sources ?? "–"} source URLs</text></g>`;
-  // rocket (Launch) at back-right corner
-  const launchPct = (d.stages || []).find(x => /launch/i.test(x.name))?.pct ?? 0;
+  // rocket = the full book (share of all dishes written)
+  const bookPct = M.P;
   const rk = ISO(272, 40, 0);
   s += `<g transform="translate(${rk[0]},${rk[1]})">
     <ellipse cx="0" cy="0" rx="26" ry="11" fill="#14141a" stroke="#ffe14d" stroke-width="1.2"/>
     <ellipse class="${RM ? "" : "pulse"}" cx="0" cy="0" rx="26" ry="11" fill="none" stroke="#ffe14d" stroke-width="1"/>
-    <path class="flame" d="M-6 -12 Q0 ${launchPct > 0 ? 16 : 2} 6 -12Z" fill="#ff8a3d" opacity="${launchPct > 0 ? 1 : .55}"/>
+    <path class="flame" d="M-6 -12 Q0 ${bookPct > 0 ? 16 : 2} 6 -12Z" fill="#ff8a3d" opacity="${bookPct > 0 ? 1 : .55}"/>
     <path d="M-8 -14 L-8 -52 Q0 -78 8 -52 L8 -14 Z" fill="#e8e8ee"/>
     <path d="M-8 -26 L-16 -12 L-8 -16Z M8 -26 L16 -12 L8 -16Z" fill="#ff2d95"/>
     <circle cx="0" cy="-44" r="4" fill="#22e1ff"/>
-    <text x="0" y="24" fill="#ffe14d" font-size="10" font-weight="800" text-anchor="middle" font-family="monospace">LAUNCH ${launchPct}%</text></g>`;
+    <text x="0" y="24" fill="#ffe14d" font-size="10" font-weight="800" text-anchor="middle" font-family="monospace">FULL BOOK ${bookPct}%</text></g>`;
   // desks, painter order by x+y
   desks.slice().sort((a, b) => (a.x + a.y) - (b.x + b.y)).forEach(k => {
     const {x, y, c, active} = k, dim = active ? 1 : .45;
@@ -432,23 +453,23 @@ function renderBubbles(desks){
 }
 function chartSVG(M){
   const h = M.hist; if (!h.length) return "<div style='color:#666'>no history yet</div>";
-  const W = 360, H = 150, L = 30, B = 22, T = 10, R = 10;
-  const t0 = Date.parse(h[0].t), t1 = Math.max(Date.parse(h[h.length - 1].t), Date.now() > t0 ? Math.min(Date.now(), Date.parse(h[h.length-1].t) + 3600e3) : t0 + 1);
-  const ymax = Math.max(...h.map(p => p.total || 0), ...h.map(p => p.recipes), 1);
-  const X = t => L + (W - L - R) * (t1 > t0 ? (Date.parse(t) - t0) / (t1 - t0) : 1), Y = v => H - B - (H - B - T) * v / ymax;
+  const W = 360, H = 160, L = 30, B = 22, T = 26, R = 12;
+  const t0 = Date.parse(h[0].t), t1 = Math.max(Date.parse(h[h.length - 1].t), t0 + 1);
+  const ymax = Math.max(10, Math.ceil(Math.max(...h.map(p => p.recipes)) * 1.15 / 10) * 10);
+  const X = t => L + (W - L - R) * (Date.parse(t) - t0) / (t1 - t0), Y = v => H - B - (H - B - T) * v / ymax;
   let s = `<svg viewBox="0 0 ${W} ${H}">`;
   [0, .5, 1].forEach(f => { const v = Math.round(ymax * f); s += `<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#222"/><text x="${L-4}" y="${Y(v)+3}" fill="#666" font-size="8" text-anchor="end">${v}</text>`; });
-  // scope (total) as dashed step line
-  let sc = ""; h.forEach((p, i) => { if (p.total){ sc += `${i ? "L" : "M"}${X(p.t)} ${Y(p.total)} `; const n = h[i+1]; sc += `L${n ? X(n.t) : W - R} ${Y(p.total)} `; } });
-  if (sc) s += `<path d="${sc}" fill="none" stroke="#ffe14d" stroke-dasharray="3 3" stroke-width="1"/>`;
+  // scope changes: dashed marker + the total that applied from then on
+  h.forEach((p, i) => { if (p.total && (i === 0 || h[i-1].total !== p.total)){ const x = X(p.t);
+    s += `<line x1="${x}" x2="${x}" y1="${T - 6}" y2="${H - B}" stroke="#ffe14d" stroke-dasharray="2 3" opacity=".6"/>
+      <text x="${Math.min(W - R - 2, x + 3)}" y="${T - 8 + (i % 2) * 0}" fill="#ffe14d" font-size="8" text-anchor="${x > W - 60 ? "end" : "start"}">/${p.total}</text>`; } });
   let ln = ""; h.forEach((p, i) => { ln += `${i ? "L" : "M"}${X(p.t).toFixed(1)} ${Y(p.recipes).toFixed(1)} `; if (h[i+1]) ln += `L${X(h[i+1].t).toFixed(1)} ${Y(p.recipes).toFixed(1)} `; });
   const last = h[h.length - 1];
   s += `<path d="${ln} L${X(last.t)} ${H-B} L${L} ${H-B}Z" fill="rgba(57,255,122,.12)"/><path d="${ln}" fill="none" stroke="#39ff7a" stroke-width="1.8" style="filter:drop-shadow(0 0 3px #39ff7a)"/>`;
   h.forEach(p => s += `<circle cx="${X(p.t)}" cy="${Y(p.recipes)}" r="2.2" fill="#39ff7a"/>`);
-  s += `<text x="${X(last.t)}" y="${Y(last.recipes) - 7}" fill="#fff" font-size="10" font-weight="800" text-anchor="end">${last.recipes}</text>`;
+  s += `<text x="${X(last.t) - 4}" y="${Y(last.recipes) - 7}" fill="#fff" font-size="10" font-weight="800" text-anchor="end">${last.recipes}/${last.total}</text>`;
   const lab = t => fHM.format(new Date(t));
-  s += `<text x="${L}" y="${H-6}" fill="#777" font-size="8">${lab(h[0].t)}</text><text x="${W-R}" y="${H-6}" fill="#777" font-size="8" text-anchor="end">${lab(last.t)}</text>`;
-  s += `<text x="${W-R}" y="${T+2}" fill="#ffe14d" font-size="8" text-anchor="end">--- scope</text></svg>`;
+  s += `<text x="${L}" y="${H-6}" fill="#777" font-size="8">${lab(h[0].t)}</text><text x="${W-R}" y="${H-6}" fill="#777" font-size="8" text-anchor="end">${lab(last.t)}</text></svg>`;
   return s;
 }
 function graphSVG(d){
@@ -467,15 +488,13 @@ function graphSVG(d){
   return `<svg viewBox="0 0 300 195" style="display:block;width:100%;height:auto">${e}${n}</svg>`;
 }
 function renderA(d, M){
-  const byName = Object.fromEntries(M.ch.map(c => [c.name.toLowerCase(), c]));
-  const ch = n => byName[n] || {done: 0, total: 0};
-  const ks = M.ks, an = d.animations || {};
+  const ks = M.ks, an = d.animations || {}, fc = M.focus;
   const K = [
-    ["RECIPES", "#ff2d95", `${M.done}<em>/${M.total}</em>`, "launch recipes", M.P],
-    ["CHICKEN", "#ffe14d", `${ch("chicken").done}<em>/${ch("chicken").total}</em>`, "chapter", pct(ch("chicken").done, ch("chicken").total)],
-    ["COOKIES", "#22e1ff", `${ch("cookies").done}<em>/${ch("cookies").total}</em>`, "chapter", pct(ch("cookies").done, ch("cookies").total)],
-    ["PASTA", "#39ff7a", `${ch("pasta").done}<em>/${ch("pasta").total}</em>`, "chapter", pct(ch("pasta").done, ch("pasta").total)],
-    ["CAKES", "#d61aff", `${ch("cakes").done}<em>/${ch("cakes").total}</em>`, "chapter", pct(ch("cakes").done, ch("cakes").total)],
+    ["DISHES", "#ff2d95", `${M.done}<em>/${M.total}</em>`, "dishes written", M.P],
+    ["FLAVOURS", "#ffe14d", `${M.fl.done}<em>/${M.fl.total}</em>`, "book flavours", pct(M.fl.done, M.fl.total)],
+    ["EXTRAS", "#22e1ff", `${M.ex}`, "extra flavours", null],
+    ["CHAPTERS", "#39ff7a", `${M.chDone}<em>/${M.ch.length}</em>`, "complete", pct(M.chDone, M.ch.length)],
+    ["NOW", "#d61aff", fc ? `${fc.done}<em>/${fc.total}</em>` : "–", fc ? fc.name.toLowerCase() : "no focus", fc ? pct(fc.done, fc.total) : null],
     ["KNOWLEDGE", "#22e1ff", `${ks.techniques ?? "–"}`, `techniques · ${ks.files ?? "–"} files`, null],
     ["ANIMATIONS", "#ffe14d", an.done == null ? `${an.total ?? "–"}<em> planned</em>` : `${an.done}<em>/${an.total}</em>`, (an.status || "").toLowerCase(), an.done == null ? null : pct(an.done, an.total)],
     ["SOURCES", "#ff2d95", `${ks.sources ?? "–"}`, "unique URLs", null]];
@@ -483,54 +502,60 @@ function renderA(d, M){
     <div class="kv">${k[2]}</div><div class="ks">${esc(k[3])}</div>${k[4] == null ? "" : `<div class="kb"><i data-w="${k[4]}"></i></div>`}</div>`).join("");
   const R = roomSVG(d, M);
   const st = $("aStage"); st.innerHTML = R.svg; renderBubbles(R.desks);
-  $("aTicker").innerHTML = `<span>RECIPES ${M.done}/${M.total} · ${M.ch.map(c => `${c.name.toUpperCase()} ${c.done}/${c.total}`).join(" · ")} · TEST SITE ${esc(d.site?.status || "")}</span>`;
+  $("aTicker").innerHTML = `<span>DISHES ${M.done}/${M.total} · BOOK FLAVOURS ${M.fl.done}/${M.fl.total} · EXTRA FLAVOURS ${M.ex} · ${M.ch.filter(c => c.done).map(c => `${c.name.toUpperCase()} ${c.done}/${c.total}`).join(" · ")} · TEST SITE ${esc(d.site?.status || "")}</span>`;
   if (d.site){ $("aSite").href = d.site.url; $("aSiteU").textContent = d.site.url.replace(/^https?:\/\//, ""); $("aSite").querySelector("b").textContent = (d.site.label || "Site") + " · " + (d.site.status || ""); }
+  // 34 compact chapter bars
+  $("aChapsL").innerHTML = M.ch.map(c => { const s = M.chSt(c), col = s === "done" ? "#39ff7a" : s === "prog" ? "#ff2d95" : "#3a3a44";
+    return `<div class="cb ${s}" style="--c:${col}"><span class="n">${String(c.no).padStart(2, "0")}</span><span class="t">${esc(c.name)}</span>
+      <b>${c.done}/${c.total}</b><div class="tr"><i data-w="${pct(c.done, c.total)}"></i></div>${c.flavours?.total ? `<em>fl ${c.flavours.done}/${c.flavours.total}</em>` : "<em></em>"}</div>`; }).join("");
+  $("aChapsM").textContent = `${M.chDone}/${M.ch.length} complete · ${M.ch.filter(c => c.done).length} started`;
   $("aRunL").innerHTML = M.run.map(r => `<div style="--c:#22e1ff"><i></i><div><b>${esc(r.name)}</b><br><span>${esc(r.detail)}</span></div></div>`).join("");
   $("aWaitL").innerHTML = M.wait.map(w => `<div style="--c:#ffe14d"><i></i><div><b>${esc(w.name)}</b> <span>· ${esc(w.owner || w.detail)}</span></div></div>`).join("");
   $("aRunN").textContent = M.run.length; $("aWaitN").textContent = M.wait.length;
-  $("aChartS").innerHTML = chartSVG(M); $("aChartM").textContent = `${M.hist.length} points · now ${M.done}`;
+  $("aChartS").innerHTML = chartSVG(M); $("aChartM").textContent = `${M.hist.length} points`;
   $("aLogL").innerHTML = M.log.map(l => `<div><b>[${esc(l.t)}]</b><span>${esc(l.e)}</span></div>`).join(""); $("aLogN").textContent = M.log.length + " lines";
   $("aGraphS").innerHTML = graphSVG(d);
   const kids = d.graph?.children || []; $("aGraphM").textContent = `${kids.filter(k => k.active).length}/${kids.length} active`;
-  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("#aKpis .kb i").forEach(i => i.style.width = i.dataset.w + "%")));
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("#aKpis .kb i, #aChapsL .tr i").forEach(i => i.style.width = i.dataset.w + "%")));
 }
 
 /* ======================= B: render ======================= */
-const COL = {done: "#3dff8f", prog: "#ff3b6b", waiting: "#4a4a52"};
+const COL = {done: "#3dff8f", prog: "#ff3b6b", waiting: "#34343b"};
 let bUnits = [], bDrawQ = 0;
 function renderB(d, M){
   const open = M.total - M.done;
-  $("bCnt").innerHTML = [["written", M.done, "#ff3b6b"], ["open", open, "#e8e8ee"], ["dishes", M.dishes.length, "#3dff8f"], ["chapters", M.ch.length, "#ff8a3d"], ["joe", M.joeWait, "#ffd23d"]]
+  $("bCnt").innerHTML = [["dishes", M.done, "#ff3b6b"], ["flavours", M.fl.done, "#3dff8f"], ["extras", M.ex, "#e8e8ee"], ["chapters", M.ch.length, "#ff8a3d"], ["joe", M.joeWait, "#ffd23d"]]
     .map(c => `<div><small>${c[0]}</small><b style="color:${c[2]}">${c[1]}</b></div>`).join("");
-  // editor text block: chapters and dishes
-  const groups = M.ch.map(c => ({c, list: M.dishes.filter(x => x.chapter === c.name)}));
-  $("bEb").innerHTML = `<div class="scan" id="bScan"></div>` + groups.map(g => `<h3 class="${M.chSt(g.c) === "prog" ? "fx" : ""}">## ${esc(g.c.name.toLowerCase())} <span>${g.c.done}/${g.c.total}</span></h3>` +
-    g.list.map(x => `<span class="tok ${x.st}" data-s="${esc(x.slug)}">${esc(x.name)}${x.units > 1 ? ` ×${x.units}` : ""}</span>`).join(" ")).join("");
-  $("bLn").textContent = `${M.dishes.length} dishes · ${M.total} recipes`;
-  // units for arc + dots, in chapter order
-  bUnits = [];
-  M.dishes.forEach(x => { for (let i = 0; i < x.units; i++) bUnits.push({st: i < x.done ? "done" : x.st === "prog" ? "prog" : "waiting", ch: x.chapter, slug: x.slug}); });
-  // cards
-  const fc = M.ch.find(c => c.name === d.focus) || M.ch.find(c => M.chSt(c) === "prog");
+  // editor text block: all chapters and their dishes
+  const groups = M.ch.map(c => ({c, list: M.dishes.filter(x => x.no === c.no)}));
+  $("bEb").innerHTML = groups.map(g => `<h3 class="${M.chSt(g.c) === "prog" ? "fx" : ""}">## ${String(g.c.no).padStart(2, "0")} ${esc(g.c.name.toLowerCase())} <span>${g.c.done}/${g.c.total}${g.c.flavours?.total ? ` · fl ${g.c.flavours.done}/${g.c.flavours.total}` : ""}</span></h3>` +
+    g.list.map(x => `<span class="tok ${x.st}">${esc(x.name)}${x.f[1] ? ` +${x.f[1]}` : ""}</span>`).join(" ")).join("");
+  $("bLn").textContent = `${M.ch.length} chapters · ${M.total} dishes`;
+  // one unit per dish, in book order (arc ticks + dots)
+  bUnits = M.dishes.map(x => ({st: x.st, ch: x.chapter, no: x.no}));
+  const fc = M.focus;
   $("bCards").innerHTML = [
-    {c: "#3dff8f", h: "status = written", l: "→ on the site", v: M.done, s: `of ${M.total} launch recipes`},
-    {c: "#ff8a3d", h: "chapter in progress", l: "→ " + (fc ? fc.name.toLowerCase() : "none"), v: fc ? fc.done : 0, s: fc ? `of ${fc.total} written` : ""},
+    {c: "#3dff8f", h: "status = written", l: "→ dishes", v: M.done, s: `of ${M.total} · flavours ${M.fl.done}/${M.fl.total}`},
+    {c: "#ff8a3d", h: "chapter in progress", l: "→ " + (fc ? fc.name.toLowerCase() : "none"), v: fc ? fc.done : 0, s: fc ? `of ${fc.total} dishes written` : ""},
     {c: "#ffd23d", h: "waiting on joe", l: "→ you", v: M.joeWait, s: M.wait.filter(w => /joe/i.test(w.owner || "")).map(w => w.name).join(", ") || "nothing"}]
     .map(k => `<div class="card" style="--c:${k.c}"><div class="ch">${esc(k.h)}</div><div class="cb"><small>${esc(k.l)}</small><b>${k.v}</b><span>${esc(k.s)}</span></div></div>`).join("");
   // big counter
-  $("bBigN").textContent = M.done; $("bBigP").textContent = `of ${M.total} launch recipes in the scope (${M.P}%)`; $("bBigM").textContent = "derived " + (d.derived?.at ? fHM.format(new Date(d.derived.at)) : "–");
-  $("bBigB").innerHTML = M.ch.map(c => { const s = M.chSt(c); return `<div class="hb" style="--c:${COL[s] === "#4a4a52" ? "#777" : COL[s]}"><span>${esc(c.name.toLowerCase())}</span><div class="tr"><i data-w="${pct(c.done, c.total)}"></i></div><b>${c.done}/${c.total}</b></div>`; }).join("");
+  $("bBigN").textContent = M.done; $("bBigP").textContent = `of ${M.total} dishes in the full book (${M.P}%) · ${M.ch.length} chapters`;
+  $("bBigM").textContent = "derived " + (d.derived?.at ? fHM.format(new Date(d.derived.at)) : "–");
+  const hb = (lab, a, b, c) => `<div class="hb" style="--c:${c}"><span>${lab}</span><div class="tr"><i data-w="${b ? pct(a, b) : (a ? 100 : 0)}"></i></div><b>${b ? `${a}/${b}` : a}</b></div>`;
+  $("bBigB").innerHTML = hb("dishes", M.done, M.total, "#ff3b6b") + hb("flavours", M.fl.done, M.fl.total, "#3dff8f") + hb("extras", M.ex, 0, "#ffd23d")
+    + hb("chapters", M.chDone, M.ch.length, "#ff8a3d");
   // decision stream
   $("bDsL").innerHTML = M.log.map(l => { const tm = (l.t.match(/\d\d:\d\d/) || [l.t])[0];
     const tag = /done|live|complete|pushed/i.test(l.e) ? ["g", "shipped"] : /joe|wait|pick/i.test(l.e) ? ["y", "joe"] : ["", "check"];
     return `<div><b>${esc(tm)}</b><em class="${tag[0]}">${tag[1]}</em><span>${esc(l.e)}</span></div>`; }).join("");
-  // vertical bars
-  $("bVb").innerHTML = M.ch.map(c => `<div><b>${c.done}</b><div class="col ${M.chSt(c) === "prog" ? "p" : ""}"><i data-h="${pct(c.done, c.total)}"></i></div><small>${esc(c.name.slice(0, 7).toLowerCase())}</small></div>`).join("");
-  // dots
-  $("bDotsG").innerHTML = bUnits.map((u, i) => `<i class="${u.st === "done" ? "d" : u.st === "prog" ? "p" : ""}${i && bUnits[i-1].ch !== u.ch ? " cs" : ""}" title="${esc(u.ch)}"></i>`).join("");
-  $("bDotsM").textContent = `${M.done} / ${M.total} filled`;
-  $("bGlobeM").textContent = `${M.P}% covered`;
-  $("bFt").innerHTML = `<span>spider@jarvis · ${esc(d.brand || "")} · ${M.log.length} log lines</span><span>written <b>${M.done}</b> · open <b class="g">${open}</b> · chapters done ${M.ch.filter(c => c.total && c.done >= c.total).length}/${M.ch.length}</span>`;
+  // 34 thin vertical bars
+  $("bVb").innerHTML = M.ch.map(c => `<div title="${esc(c.name)} ${c.done}/${c.total}"><div class="col ${M.chSt(c) === "prog" ? "p" : ""}"><i data-h="${pct(c.done, c.total)}"></i></div><small>${c.no}</small></div>`).join("");
+  // dots: one per dish
+  $("bDotsG").innerHTML = bUnits.map((u, i) => `<i class="${u.st === "done" ? "d" : u.st === "prog" ? "p" : ""}"></i>`).join("");
+  $("bDotsM").textContent = `${M.done} / ${M.total} dishes`;
+  $("bGlobeM").textContent = `${M.P}% of dishes`;
+  $("bFt").innerHTML = `<span>spider@jarvis · ${esc(d.brand || "")} · ${M.log.length} log lines</span><span>dishes <b>${M.done}</b>/${M.total} · flavours <b class="g">${M.fl.done}</b>/${M.fl.total} · extras ${M.ex} · chapters done ${M.chDone}/${M.ch.length}</span>`;
   requestAnimationFrame(() => requestAnimationFrame(() => {
     document.querySelectorAll("#bBigB .tr i").forEach(i => i.style.width = i.dataset.w + "%");
     document.querySelectorAll("#bVb .col i").forEach(i => i.style.height = i.dataset.h + "%");
@@ -542,7 +567,7 @@ function drawMap(M){
   const map = $("bMap"), cv = $("bCv"), eb = $("bEb");
   const r = map.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
   if (!r.width) return;
-  map.style.setProperty("--h", eb.scrollHeight + "px");
+  map.style.setProperty("--h", eb.parentElement.clientHeight + "px");
   cv.width = r.width * dpr; cv.height = r.height * dpr;
   const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, r.width, r.height);
   const ed = eb.parentElement.getBoundingClientRect();
@@ -556,12 +581,12 @@ function drawMap(M){
   const N = Math.max(1, bUnits.length);
   const tickP = i => { const a = a1 - (a1 - a0) * (i + .5) / N; return [cx + R * Math.cos(a), cy + R * Math.sin(a), a]; };
   // fan: focal -> every tick
-  g.lineWidth = .6;
-  bUnits.forEach((u, i) => { const [x, y] = tickP(i); g.strokeStyle = u.st === "done" ? "rgba(61,255,143,.22)" : u.st === "prog" ? "rgba(255,59,107,.5)" : "rgba(120,120,130,.12)";
+  g.lineWidth = .4;
+  bUnits.forEach((u, i) => { if (u.st === "waiting" && i % 3) return; const [x, y] = tickP(i); g.strokeStyle = u.st === "done" ? "rgba(61,255,143,.22)" : u.st === "prog" ? "rgba(255,59,107,.5)" : "rgba(120,120,130,.12)";
     g.beginPath(); g.moveTo(fx, fy); g.quadraticCurveTo((fx + x) / 2, (fy + y) / 2 + (y - fy) * .25, x, y); g.stroke(); });
   // ticks
   bUnits.forEach((u, i) => { const [x, y, a] = tickP(i); const L = u.st === "done" ? 26 : u.st === "prog" ? 30 : 14;
-    g.strokeStyle = COL[u.st]; g.lineWidth = u.st === "waiting" ? 1 : 1.6; g.beginPath(); g.moveTo(x, y); g.lineTo(x + L * Math.cos(a + Math.PI), y + L * Math.sin(a + Math.PI)); g.stroke(); });
+    g.strokeStyle = COL[u.st]; g.lineWidth = u.st === "waiting" ? .6 : 1; g.beginPath(); g.moveTo(x, y); g.lineTo(x + L * Math.cos(a + Math.PI), y + L * Math.sin(a + Math.PI)); g.stroke(); });
   g.strokeStyle = "rgba(255,255,255,.18)"; g.lineWidth = 1; g.beginPath(); g.arc(cx, cy, R + 8, a0, a1); g.stroke();
   g.beginPath(); g.arc(cx, cy, R - 34, a0, a1); g.strokeStyle = "rgba(255,255,255,.07)"; g.stroke();
   // tokens -> focal (only the visible ones)
@@ -571,11 +596,15 @@ function drawMap(M){
     const x = b.right - r.left, y = b.top + b.height / 2 - r.top, st = t.classList.contains("done") ? "done" : t.classList.contains("prog") ? "prog" : "waiting";
     g.strokeStyle = st === "done" ? "rgba(61,255,143,.35)" : st === "prog" ? "rgba(255,59,107,.7)" : "rgba(120,120,130,.18)"; g.lineWidth = .7;
     g.beginPath(); g.moveTo(Math.min(x, ed.right - r.left), y); g.bezierCurveTo(ed.right - r.left + 10, y, fx - 20, fy, fx, fy); g.stroke(); });
-  // chapter chips at centre of their tick range
-  let html = "", i0 = 0;
-  M.ch.forEach(c => { const n = bUnits.filter(u => u.ch === c.name).length; if (!n){ return; }
-    const [x, y] = tickP(i0 + n / 2); i0 += n;
-    html += `<div class="chip ${M.chSt(c)}" style="left:${Math.min(r.width - 96, x + 36)}px;top:${y}px">${esc(c.name.toLowerCase())} ${c.done}/${c.total}</div>`; });
+  // chips for chapters that have started (plus the focus), spread so they never overlap
+  let html = "", i0 = 0; const cand = [];
+  M.ch.forEach(c => { const n = bUnits.filter(u => u.no === c.no).length; const [x, y] = tickP(i0 + n / 2); i0 += n;
+    if (c.done > 0 || c.name === D.focus) cand.push({c, x, y}); });
+  const top = 12, bot = r.height - 12, gap = 19;
+  cand.sort((a, b) => a.y - b.y);
+  let yy = top; cand.forEach(k => { k.y = Math.max(k.y, yy); yy = k.y + gap; });
+  for (let j = cand.length - 1, lim = bot; j >= 0; j--){ cand[j].y = Math.min(cand[j].y, lim); lim = cand[j].y - gap; }
+  cand.forEach(k => { html += `<div class="chip ${M.chSt(k.c)}" style="left:${Math.min(r.width - 96, k.x + 26)}px;top:${k.y}px">${String(k.c.no).padStart(2, "0")} ${esc(k.c.name.toLowerCase().split(/[ ,&]/)[0])} ${k.c.done}/${k.c.total}</div>`; });
   $("bChips").innerHTML = html;
 }
 let mapRaf = 0;
@@ -614,8 +643,8 @@ function render(force){
   if (layout === "A") renderA(D, M); else renderB(D, M);
   stamp();
 }
-const PANELS = {A: {aKpis: d => [d.chapters, d.headline, d.knowledge, d.animations], aRoomP: d => [d.running, d.graph], aChart: d => d.history, aLog: d => d.log, aRun: d => d.running, aWait: d => d.waiting, aGraph: d => d.graph},
-  B: {bMap: d => d.dishes, bBig: d => [d.headline, d.chapters], bDs: d => d.log, bBars: d => d.chapters, bDots: d => d.dishes}};
+const PANELS = {A: {aKpis: d => [d.headline, d.flavours, d.extraFlavours, d.knowledge, d.animations], aChaps: d => d.chapters, aRoomP: d => [d.running, d.graph], aChart: d => d.history, aLog: d => d.log, aRun: d => d.running, aWait: d => d.waiting, aGraph: d => d.graph},
+  B: {bMap: d => d.dishes, bBig: d => [d.headline, d.flavours, d.extraFlavours], bDs: d => d.log, bBars: d => d.chapters, bDots: d => d.dishes}};
 function changedPanels(d){
   const out = []; const now = {};
   for (const L in PANELS) for (const k in PANELS[L]){ now[k] = JSON.stringify(PANELS[L][k](d)); if (prev[k] !== undefined && prev[k] !== now[k] && L === layout) out.push(k); }
