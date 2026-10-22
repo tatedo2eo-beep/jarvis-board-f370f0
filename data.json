@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T16:19:34+03:00",
+  "updatedAt": "2026-10-22T16:27:01+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -13,7 +13,7 @@
   },
   "headline": {
     "label": "Launch recipes",
-    "done": 40,
+    "done": 58,
     "total": 193
   },
   "chapters": [
@@ -24,7 +24,7 @@
     },
     {
       "name": "Chicken",
-      "done": 25,
+      "done": 43,
       "total": 43
     },
     {
@@ -58,7 +58,7 @@
     },
     {
       "name": "Recipes",
-      "pct": 21
+      "pct": 30
     },
     {
       "name": "Site build",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Recipes (launch chapters)",
-      "detail": "40 of 193: burgers 13/13, chicken 25/43, cookies 2/39, pasta 0/57, cakes 0/41",
+      "detail": "58 of 193: burgers 13/13, chicken 43/43, cookies 2/39, pasta 0/57, cakes 0/41",
       "status": "IN PROGRESS",
       "node": "Recipes"
     },
@@ -159,6 +159,11 @@
       "done": true
     },
     {
+      "name": "Chicken chapter complete (43/43)",
+      "date": "Oct 22",
+      "done": true
+    },
+    {
       "name": "Brand name picked",
       "date": "Waiting on Joe",
       "done": false
@@ -227,6 +232,10 @@
     }
   ],
   "log": [
+    {
+      "time": "16:27",
+      "text": "Chicken chapter done (43/43). 58 of 193 launch recipes written. Home story for design B (chocolate layer cake) pushed."
+    },
     {
       "t": "Oct 22 16:20",
       "e": "Check: 40/193 launch recipes (chicken 25/43); chicken batch 3 being written now; test site live; anim v3 19 shots"
