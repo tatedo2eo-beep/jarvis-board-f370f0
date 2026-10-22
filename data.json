@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T17:50:13+03:00",
+  "updatedAt": "2026-10-22T18:11:18+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -393,6 +393,10 @@
     {
       "t": "Oct 22 16:11",
       "e": "Recipes 40 of 193 launch dishes; chicken 25/43; test site up"
+    },
+    {
+      "t": "Oct 22 18:11",
+      "e": "Recipes 118 of 193 launch dishes; pasta 23/57; no new work since 17:28"
     }
   ],
   "dishes": [
@@ -1614,7 +1618,7 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T17:50:13+03:00",
+    "at": "2026-10-22T18:11:18+03:00",
     "from": "public-site/content (read-only)",
     "recipesOnSite": 125
   },
