@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:25:27+03:00",
+  "updatedAt": "2026-10-22T14:29:57+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Site build",
-      "pct": 0
+      "pct": 5
     },
     {
       "name": "Launch",
@@ -35,19 +35,25 @@
   ],
   "running": [
     {
-      "name": "Animation preview v2",
-      "detail": "v1 too flat, redoing after Joe's notes",
-      "status": "NEXT"
+      "name": "Building the public site",
+      "detail": "Jarvis + Claude Code",
+      "status": "IN PROGRESS"
+    },
+    {
+      "name": "Writing recipes, batch 1 (25)",
+      "detail": "original wording, USDA nutrition",
+      "status": "IN PROGRESS"
+    },
+    {
+      "name": "Animation v3 (futuristic hero)",
+      "detail": "longer, more realistic",
+      "status": "IN PROGRESS"
     }
   ],
   "waiting": [
     {
       "name": "Animation demo feedback",
       "detail": "The Stack hero + tap-to-play step clip"
-    },
-    {
-      "name": "Build permission",
-      "detail": "say 'Jarvis you are allowed to build'"
     },
     {
       "name": "Tax setup",
@@ -110,6 +116,10 @@
   ],
   "log": [
     {
+      "t": "Oct 22 14:28",
+      "e": "Joe gave the build go-ahead. Site build and recipe writing started"
+    },
+    {
       "t": "Oct 22 14:25",
       "e": "Realistic demo done: Stack hero, recipe list, tap-to-play step clip (phone + PC)"
     },
@@ -165,6 +175,12 @@
   "toasts": [
     {
       "icon": "✓",
+      "title": "BUILD",
+      "status": "STARTED",
+      "kind": "ok"
+    },
+    {
+      "icon": "✓",
       "title": "CLAUDE CODE",
       "status": "CONNECTED",
       "kind": "ok"
@@ -173,12 +189,6 @@
       "icon": "✓",
       "title": "HEALTHY RULES",
       "status": "SET",
-      "kind": "ok"
-    },
-    {
-      "icon": "✓",
-      "title": "AI COST CHECK",
-      "status": "DONE",
       "kind": "ok"
     }
   ],
