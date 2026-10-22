@@ -425,7 +425,7 @@ async function load(){
     const v = params.get("toast");
     if (v === "new" && D.log && D.log.length) showToast({icon:"✦", title:D.log[0].t.toUpperCase(), status:D.log[0].e, kind:"new"}, "NEW");
     else { const i = (+v || 0) % D.toasts.length; showToast(D.toasts[i], `UPDATE ${String(i+1).padStart(2,"0")}/${String(D.toasts.length).padStart(2,"0")}`); }
-  } else if (!params.has("notoast")) setTimeout(loopToasts, 1800);
+  }
 })();
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (D) { drawChart(); drawGraph(); } }, 120); });
 })();
