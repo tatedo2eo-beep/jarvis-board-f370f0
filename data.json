@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T16:44:46+03:00",
+  "updatedAt": "2026-10-22T17:00:11+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -13,7 +13,7 @@
   },
   "headline": {
     "label": "Launch recipes",
-    "done": 58,
+    "done": 95,
     "total": 193
   },
   "chapters": [
@@ -29,7 +29,7 @@
     },
     {
       "name": "Cookies",
-      "done": 2,
+      "done": 39,
       "total": 39
     },
     {
@@ -58,7 +58,7 @@
     },
     {
       "name": "Recipes",
-      "pct": 30
+      "pct": 49
     },
     {
       "name": "Site build",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Recipes (launch chapters)",
-      "detail": "58 of 193: burgers 13/13, chicken 43/43, cookies 2/39, pasta 0/57, cakes 0/41",
+      "detail": "95 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 0/57 (next), cakes 0/41",
       "status": "IN PROGRESS",
       "node": "Recipes"
     },
@@ -169,6 +169,11 @@
       "done": true
     },
     {
+      "name": "Cookies chapter complete (39/39)",
+      "date": "Oct 22",
+      "done": true
+    },
+    {
       "name": "Brand name picked",
       "date": "Waiting on Joe",
       "done": false
@@ -237,6 +242,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 17:00",
+      "e": "Check: 95/193 launch recipes; cookies, bars and brownies done 39/39 (37 new); photo originals and salt re-checked; pasta next; test site live; anim v3 19 shots"
+    },
     {
       "t": "Oct 22 16:44",
       "e": "Board rebuilt with two layouts: Command Room and Spider (toggle at the top); per-dish status now derived from the site content"
@@ -748,32 +757,32 @@
       "name": "Blondies",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "flourless",
       "name": "Flourless",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "brookies",
       "name": "Brookies",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "bars-magic-bars-millionaires-shortbread",
       "name": "Bars (magic bars, millionaire's shortbread)",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "drop-chocolate-chip-oatmeal",
@@ -788,208 +797,208 @@
       "name": "Sugar/cut-out",
       "chapter": "Cookies",
       "units": 2,
-      "done": 0,
-      "status": "waiting"
+      "done": 2,
+      "status": "done"
     },
     {
       "slug": "shortbread",
       "name": "Shortbread",
       "chapter": "Cookies",
       "units": 3,
-      "done": 0,
-      "status": "waiting"
+      "done": 3,
+      "status": "done"
     },
     {
       "slug": "peanut-butter",
       "name": "Peanut butter",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "snickerdoodle",
       "name": "Snickerdoodle",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "gingerbread",
       "name": "Gingerbread",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "biscotti",
       "name": "Biscotti",
       "chapter": "Cookies",
       "units": 3,
-      "done": 0,
-      "status": "waiting"
+      "done": 3,
+      "status": "done"
     },
     {
       "slug": "thumbprints",
       "name": "Thumbprints",
       "chapter": "Cookies",
       "units": 2,
-      "done": 0,
-      "status": "waiting"
+      "done": 2,
+      "status": "done"
     },
     {
       "slug": "sandwich-cookies",
       "name": "Sandwich cookies",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "nanaimo-bar",
       "name": "Nanaimo bar",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "anzac-biscuit",
       "name": "Anzac biscuit",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "diamant",
       "name": "Diamant",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "tuiles",
       "name": "Tuiles",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "langues-de-chat",
       "name": "Langues de chat",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "madeleines-cake-like",
       "name": "Madeleines (cake-like)",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "florentines",
       "name": "Florentines",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "amaretti",
       "name": "Amaretti",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "speculoos",
       "name": "Speculoos",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "alfajores",
       "name": "Alfajores",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "stroopwafel",
       "name": "Stroopwafel",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "rugelach",
       "name": "Rugelach",
       "chapter": "Cookies",
       "units": 2,
-      "done": 0,
-      "status": "waiting"
+      "done": 2,
+      "status": "done"
     },
     {
       "slug": "pizzelle",
       "name": "Pizzelle",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "black-and-white",
       "name": "Black-and-white",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "kitchen-sink-cookie",
       "name": "Kitchen-sink cookie",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "brown-butter-chocolate-chip-cookie",
       "name": "Brown-butter chocolate chip cookie",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "lemon-bars",
       "name": "Lemon bars",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "graham-crackers",
       "name": "Graham crackers",
       "chapter": "Cookies",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "long-dried-spaghetti-linguine-bucatini",
@@ -1585,9 +1594,9 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T16:44:46+03:00",
+    "at": "2026-10-22T17:00:11+03:00",
     "from": "public-site/content (read-only)",
-    "recipesOnSite": 65
+    "recipesOnSite": 102
   },
   "history": [
     {
@@ -1628,6 +1637,11 @@
     {
       "t": "2026-10-22T16:27:01+03:00",
       "recipes": 58,
+      "total": 193
+    },
+    {
+      "t": "2026-10-22T17:00:11+03:00",
+      "recipes": 95,
       "total": 193
     }
   ],
