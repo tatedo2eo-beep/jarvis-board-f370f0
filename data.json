@@ -1,11 +1,11 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T15:31:35+03:00",
+  "updatedAt": "2026-10-22T15:50:14+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
-    "done": 13,
-    "total": 100
+    "done": 27,
+    "total": 193
   },
   "stages": [
     {
@@ -22,7 +22,7 @@
     },
     {
       "name": "Recipes",
-      "pct": 13
+      "pct": 14
     },
     {
       "name": "Site build",
@@ -41,12 +41,12 @@
     },
     {
       "name": "Writing recipes",
-      "detail": "13 recipe files now (rework to Tami's dish list); smash burger updated 15:28",
+      "detail": "27 of 193 launch recipes: burgers 13/13, chicken 12/43, cookies 2/39 (chicken batch 1 pushed 15:49)",
       "status": "IN PROGRESS"
     },
     {
       "name": "Calculator, 15 designs, burger v4",
-      "detail": "Home, hero and recipe page code edited in the last 5 min (not pushed yet)",
+      "detail": "Site rebuilt and pushed 15:49 with all 34 chapters and Tami photos",
       "status": "IN PROGRESS"
     }
   ],
@@ -119,6 +119,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 15:50",
+      "e": "Chicken batch 1 live: 12 recipes; burgers re-sourced to top-tier sources"
+    },
     {
       "t": "Oct 22 15:32",
       "e": "13 recipe files after rework to Tami's dishes; home/design work active locally; test site live"
