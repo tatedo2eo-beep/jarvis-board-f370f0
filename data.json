@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T15:15:09+03:00",
+  "updatedAt": "2026-10-22T15:21:17+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -41,12 +41,12 @@
     },
     {
       "name": "Writing recipes",
-      "detail": "27 written; drafting the next recipe now",
+      "detail": "27 written; no new recipe since 15:06",
       "status": "IN PROGRESS"
     },
     {
       "name": "Calculator, 15 designs, burger v4",
-      "detail": "15 designs being added locally (not pushed yet)",
+      "detail": "Burger v4 home images and 15 designs being built locally (not pushed yet)",
       "status": "IN PROGRESS"
     }
   ],
@@ -120,12 +120,12 @@
   ],
   "log": [
     {
-      "t": "Oct 22 15:15",
-      "e": "27 of 100 recipes; next recipe drafting; 15-design work in progress locally; test site live"
+      "t": "Oct 22 15:22",
+      "e": "27 of 100 recipes; burger v4 home images in progress locally; test site live"
     },
     {
-      "t": "27 recipes done, live test site up, edits to 10 recipes in progress",
-      "e": "27 recipes done, live test site up, edits to 10 recipes in progress"
+      "t": "Oct 22 15:15",
+      "e": "27 of 100 recipes; next recipe drafting; 15-design work in progress locally; test site live"
     },
     {
       "t": "Oct 22 14:53",
