@@ -1,10 +1,10 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:53:09+03:00",
+  "updatedAt": "2026-10-22T14:58:13+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
-    "done": 10,
+    "done": 27,
     "total": 100
   },
   "stages": [
@@ -18,15 +18,15 @@
     },
     {
       "name": "Animations",
-      "pct": 90
+      "pct": 95
     },
     {
       "name": "Recipes",
-      "pct": 10
+      "pct": 27
     },
     {
       "name": "Site build",
-      "pct": 45
+      "pct": 70
     },
     {
       "name": "Launch",
@@ -35,24 +35,24 @@
   ],
   "running": [
     {
-      "name": "Building the public site",
-      "detail": "Jarvis + Claude Code",
-      "status": "IN PROGRESS"
+      "name": "Public site v1 is live",
+      "detail": "https://tatedo2eo-beep.github.io/stack-site-5fa39e/",
+      "status": "LIVE (TEST)"
     },
     {
-      "name": "Writing recipes, batch 1 (25)",
-      "detail": "10 of 25 done, original wording, USDA nutrition",
+      "name": "Writing recipes",
+      "detail": "27 written; waiting on Joe's chapter choice",
       "status": "IN PROGRESS"
     }
   ],
   "waiting": [
     {
-      "name": "Home scroll animation (rebuilding, flowing style)",
-      "detail": "5 s futuristic hero ready"
+      "name": "Which chapters first",
+      "detail": "Joe to pick"
     },
     {
-      "name": "Animation demo feedback",
-      "detail": "The Stack hero + tap-to-play step clip"
+      "name": "Home animation feedback",
+      "detail": "flowing scroll, live on the site"
     },
     {
       "name": "Tax setup",
@@ -111,6 +111,10 @@
     {
       "k": "Domain",
       "v": "Bought at launch · about $10/yr"
+    },
+    {
+      "k": "Site link",
+      "v": "tatedo2eo-beep.github.io/stack-site-5fa39e"
     }
   ],
   "log": [
