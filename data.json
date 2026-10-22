@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T17:16:59+03:00",
+  "updatedAt": "2026-10-22T17:29:53+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -13,7 +13,7 @@
   },
   "headline": {
     "label": "Launch recipes",
-    "done": 106,
+    "done": 118,
     "total": 193
   },
   "chapters": [
@@ -34,7 +34,7 @@
     },
     {
       "name": "Pasta",
-      "done": 11,
+      "done": 23,
       "total": 57
     },
     {
@@ -58,7 +58,7 @@
     },
     {
       "name": "Recipes",
-      "pct": 55
+      "pct": 61
     },
     {
       "name": "Site build",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Recipes (launch chapters)",
-      "detail": "106 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 11/57 (in progress), cakes 0/41",
+      "detail": "118 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 23/57 (in progress), cakes 0/41",
       "status": "IN PROGRESS",
       "node": "Recipes"
     },
@@ -242,6 +242,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 17:30",
+      "e": "Check: 118/193 launch recipes; pasta batch 2 done (23/57, pushed 17:28); test site live; anim v3 19 shots"
+    },
     {
       "t": "Oct 22 17:17",
       "e": "Check: 106/193 launch recipes; pasta batch 1 done (11/57, pushed 17:14); test site live; anim v3 19 shots"
@@ -1061,56 +1065,56 @@
       "name": "Mac and cheese",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "cacio-e-pepe",
       "name": "Cacio e pepe",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "aglio-e-olio",
       "name": "Aglio e olio",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "puttanesca",
       "name": "Puttanesca",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "alfredo-roman-original",
       "name": "Alfredo (Roman original)",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "alla-norma",
       "name": "Alla Norma",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "pasta-e-fagioli",
       "name": "Pasta e fagioli",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "pad-thai",
@@ -1253,16 +1257,16 @@
       "name": "Pesto alla trapanese",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "trenette-al-pesto",
       "name": "Trenette al pesto",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "malloreddus",
@@ -1277,8 +1281,8 @@
       "name": "Spaghetti with meatballs",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "lo-mein",
@@ -1365,16 +1369,16 @@
       "name": "Baked ziti",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "pasta-al-limone",
       "name": "Pasta al limone",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "new-york-baked-dense",
@@ -1602,9 +1606,9 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T17:16:59+03:00",
+    "at": "2026-10-22T17:29:53+03:00",
     "from": "public-site/content (read-only)",
-    "recipesOnSite": 113
+    "recipesOnSite": 125
   },
   "history": [
     {
@@ -1655,6 +1659,11 @@
     {
       "t": "2026-10-22T17:16:59+03:00",
       "recipes": 106,
+      "total": 193
+    },
+    {
+      "t": "2026-10-22T17:29:53+03:00",
+      "recipes": 118,
       "total": 193
     }
   ],
