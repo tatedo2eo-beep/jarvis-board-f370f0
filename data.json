@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T16:27:07+03:00",
+  "updatedAt": "2026-10-22T16:36:12+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -124,7 +124,12 @@
         "name": "Linked to recipe writing",
         "done": false
       }
-    ]
+    ],
+    "stats": {
+      "files": 6,
+      "techniques": 74,
+      "sources": 157
+    }
   },
   "animations": {
     "status": "IN PROGRESS",
@@ -232,6 +237,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 16:36",
+      "e": "Check: 58/193 launch recipes (burgers 13/13, chicken 43/43, cookies 2/39); chicken recipes and nutrition notes being finalised; test site live; anim v3 19 shots"
+    },
     {
       "t": "Oct 22 16:27",
       "e": "Check: 58/193 launch recipes; chicken chapter done 43/43; design B home story (chocolate layer cake) pushed; cookies next; anim v3 19 shots"
@@ -347,6 +356,1236 @@
     {
       "t": "Oct 22 16:11",
       "e": "Recipes 40 of 193 launch dishes; chicken 25/43; test site up"
+    }
+  ],
+  "dishes": [
+    {
+      "slug": "smash-burger",
+      "name": "Smash burger",
+      "chapter": "Burgers",
+      "units": 2,
+      "done": 2,
+      "status": "done"
+    },
+    {
+      "slug": "cheeseburger",
+      "name": "Cheeseburger",
+      "chapter": "Burgers",
+      "units": 3,
+      "done": 3,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-burger",
+      "name": "Chicken burger",
+      "chapter": "Burgers",
+      "units": 3,
+      "done": 3,
+      "status": "done"
+    },
+    {
+      "slug": "veggie-bean-burger",
+      "name": "Veggie/bean burger",
+      "chapter": "Burgers",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "sliders",
+      "name": "Sliders",
+      "chapter": "Burgers",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "juicy-lucy-stuffed",
+      "name": "Juicy Lucy (stuffed)",
+      "chapter": "Burgers",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "oklahoma-onion-burger",
+      "name": "Oklahoma onion burger",
+      "chapter": "Burgers",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "patty-melt",
+      "name": "Patty melt",
+      "chapter": "Burgers",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "whole-roast-chicken",
+      "name": "Whole roast chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "fried-chicken-southern",
+      "name": "Fried chicken (Southern)",
+      "chapter": "Chicken",
+      "units": 2,
+      "done": 2,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-wings",
+      "name": "Chicken wings",
+      "chapter": "Chicken",
+      "units": 5,
+      "done": 5,
+      "status": "done"
+    },
+    {
+      "slug": "cutlet-schnitzel",
+      "name": "Cutlet/schnitzel",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "nuggets-tenders",
+      "name": "Nuggets/tenders",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-curry",
+      "name": "Chicken curry",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "poached",
+      "name": "Poached",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-pot-pie",
+      "name": "Chicken pot pie",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-adobo",
+      "name": "Chicken adobo",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-65",
+      "name": "Chicken 65",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-inasal",
+      "name": "Chicken inasal",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "yassa",
+      "name": "Yassa",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "musakhan",
+      "name": "Musakhan",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "samgyetang",
+      "name": "Samgyetang",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "yangnyeom-chicken",
+      "name": "Yangnyeom chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "gai-yang",
+      "name": "Gai yang",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-paprikash",
+      "name": "Chicken paprikash",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "coronation-chicken",
+      "name": "Coronation chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "nashville-hot-chicken",
+      "name": "Nashville hot chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-fried-steak",
+      "name": "Chicken fried steak",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-maryland",
+      "name": "Chicken Maryland",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "ohn-no-khao-swe",
+      "name": "Ohn no khao swè",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "high-heat-roast-chicken",
+      "name": "High-heat roast chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-kiev",
+      "name": "Chicken Kiev",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "yakitori",
+      "name": "Yakitori",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "tandoori",
+      "name": "Tandoori",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "butter-chicken",
+      "name": "Butter chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "hainanese-chicken-rice",
+      "name": "Hainanese chicken rice",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "piri-piri",
+      "name": "Piri-piri",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "jerk",
+      "name": "Jerk",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-parmigiana",
+      "name": "Chicken parmigiana",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "peking-duck",
+      "name": "Peking duck",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "kung-pao-chicken",
+      "name": "Kung Pao chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "fesenjan",
+      "name": "Fesenjan",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-and-dumplings",
+      "name": "Chicken and dumplings",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "pollo-al-mattone-chicken-under-a-brick",
+      "name": "Pollo al mattone (chicken under a brick)",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "general-tsos-chicken",
+      "name": "General Tso's chicken",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "chicken-souvlaki",
+      "name": "Chicken souvlaki",
+      "chapter": "Chicken",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "brownie-fudgy-or-cakey",
+      "name": "Brownie (fudgy or cakey)",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "blondies",
+      "name": "Blondies",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "flourless",
+      "name": "Flourless",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "brookies",
+      "name": "Brookies",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "bars-magic-bars-millionaires-shortbread",
+      "name": "Bars (magic bars, millionaire's shortbread)",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "drop-chocolate-chip-oatmeal",
+      "name": "Drop (chocolate chip, oatmeal)",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 1,
+      "status": "done"
+    },
+    {
+      "slug": "sugar-cut-out",
+      "name": "Sugar/cut-out",
+      "chapter": "Cookies",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "shortbread",
+      "name": "Shortbread",
+      "chapter": "Cookies",
+      "units": 3,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "peanut-butter",
+      "name": "Peanut butter",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "snickerdoodle",
+      "name": "Snickerdoodle",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "gingerbread",
+      "name": "Gingerbread",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "biscotti",
+      "name": "Biscotti",
+      "chapter": "Cookies",
+      "units": 3,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "thumbprints",
+      "name": "Thumbprints",
+      "chapter": "Cookies",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "sandwich-cookies",
+      "name": "Sandwich cookies",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "nanaimo-bar",
+      "name": "Nanaimo bar",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "anzac-biscuit",
+      "name": "Anzac biscuit",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "diamant",
+      "name": "Diamant",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "tuiles",
+      "name": "Tuiles",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "langues-de-chat",
+      "name": "Langues de chat",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "madeleines-cake-like",
+      "name": "Madeleines (cake-like)",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "florentines",
+      "name": "Florentines",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "amaretti",
+      "name": "Amaretti",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "speculoos",
+      "name": "Speculoos",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "alfajores",
+      "name": "Alfajores",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "stroopwafel",
+      "name": "Stroopwafel",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "rugelach",
+      "name": "Rugelach",
+      "chapter": "Cookies",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pizzelle",
+      "name": "Pizzelle",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "black-and-white",
+      "name": "Black-and-white",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "kitchen-sink-cookie",
+      "name": "Kitchen-sink cookie",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "brown-butter-chocolate-chip-cookie",
+      "name": "Brown-butter chocolate chip cookie",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "lemon-bars",
+      "name": "Lemon bars",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "graham-crackers",
+      "name": "Graham crackers",
+      "chapter": "Cookies",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "long-dried-spaghetti-linguine-bucatini",
+      "name": "Long dried (spaghetti, linguine, bucatini)",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "short-penne-rigatoni-fusilli",
+      "name": "Short (penne, rigatoni, fusilli)",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "ribbons-fresh-egg-tagliatelle-fettuccine-pappardelle",
+      "name": "Ribbons/fresh egg (tagliatelle, fettuccine, pappardelle)",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "sheets-baked-lasagne",
+      "name": "Sheets/baked (lasagne)",
+      "chapter": "Pasta",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "filled-ravioli-tortellini-agnolotti",
+      "name": "Filled (ravioli, tortellini, agnolotti)",
+      "chapter": "Pasta",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "gnocchi",
+      "name": "Gnocchi",
+      "chapter": "Pasta",
+      "units": 4,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "mac-and-cheese",
+      "name": "Mac and cheese",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "cacio-e-pepe",
+      "name": "Cacio e pepe",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "aglio-e-olio",
+      "name": "Aglio e olio",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "puttanesca",
+      "name": "Puttanesca",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "alfredo-roman-original",
+      "name": "Alfredo (Roman original)",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "alla-norma",
+      "name": "Alla Norma",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pasta-e-fagioli",
+      "name": "Pasta e fagioli",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pad-thai",
+      "name": "Pad thai",
+      "chapter": "Pasta",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "chow-mein-lo-mein",
+      "name": "Chow mein/lo mein",
+      "chapter": "Pasta",
+      "units": 4,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "biang-biang-hand-pulled-lamian",
+      "name": "Biang biang/hand-pulled lamian",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "japchae",
+      "name": "Japchae",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pancit",
+      "name": "Pancit",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "spatzle",
+      "name": "Spätzle",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "kugel",
+      "name": "Kugel",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "haluski",
+      "name": "Haluski",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pancit-bihon",
+      "name": "Pancit bihon",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "mee-goreng",
+      "name": "Mee goreng",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "kasespatzle",
+      "name": "Käsespätzle",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "vareniki",
+      "name": "Vareniki",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "kalguksu",
+      "name": "Kalguksu",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "hot-dry-noodles",
+      "name": "Hot dry noodles",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "beef-chow-fun",
+      "name": "Beef chow fun",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "yakisoba",
+      "name": "Yakisoba",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pad-see-ew",
+      "name": "Pad see ew",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pesto-alla-trapanese",
+      "name": "Pesto alla trapanese",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "trenette-al-pesto",
+      "name": "Trenette al pesto",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "malloreddus",
+      "name": "Malloreddus",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "spaghetti-with-meatballs",
+      "name": "Spaghetti with meatballs",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "lo-mein",
+      "name": "Lo mein",
+      "chapter": "Pasta",
+      "units": 3,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "somen",
+      "name": "Somen",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "trofie",
+      "name": "Trofie",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pappardelle",
+      "name": "Pappardelle",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "cannelloni",
+      "name": "Cannelloni",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pastitsio",
+      "name": "Pastitsio",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "hand-rolled-shapes-orecchiette-pici-trofie-cavatelli",
+      "name": "Hand-rolled shapes (orecchiette, pici, trofie, cavatelli)",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "naengmyeon",
+      "name": "Naengmyeon",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pizzoccheri",
+      "name": "Pizzoccheri",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pasta-primavera",
+      "name": "Pasta primavera",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "baked-ziti",
+      "name": "Baked ziti",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pasta-al-limone",
+      "name": "Pasta al limone",
+      "chapter": "Pasta",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "new-york-baked-dense",
+      "name": "New York (baked, dense)",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "basque-burnt-san-sebastian",
+      "name": "Basque burnt (San Sebastián)",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "japanese-souffle-cotton",
+      "name": "Japanese soufflé/cotton",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "butter-layer-cake-yellow-vanilla",
+      "name": "Butter/layer cake (yellow/vanilla)",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "chocolate-layer",
+      "name": "Chocolate layer",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "sponge-genoise",
+      "name": "Sponge (genoise)",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "chiffon",
+      "name": "Chiffon",
+      "chapter": "Cakes",
+      "units": 4,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "angel-food",
+      "name": "Angel food",
+      "chapter": "Cakes",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pound-cake",
+      "name": "Pound cake",
+      "chapter": "Cakes",
+      "units": 3,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "bundt",
+      "name": "Bundt",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "carrot",
+      "name": "Carrot",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "red-velvet",
+      "name": "Red velvet",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "coffee-cake",
+      "name": "Coffee cake",
+      "chapter": "Cakes",
+      "units": 3,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "upside-down",
+      "name": "Upside-down",
+      "chapter": "Cakes",
+      "units": 3,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "sheet-cake",
+      "name": "Sheet cake",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "cupcakes",
+      "name": "Cupcakes",
+      "chapter": "Cakes",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "boston-cream-pie",
+      "name": "Boston cream pie",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "whoopie-pie",
+      "name": "Whoopie pie",
+      "chapter": "Cakes",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "entremets-mousse-cake",
+      "name": "Entremets (mousse cake)",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "black-forest",
+      "name": "Black Forest",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "sachertorte",
+      "name": "Sachertorte",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "swiss-roll-buche-de-noel",
+      "name": "Swiss roll/bûche de Noël",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "basque-cake",
+      "name": "Basque cake",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "pain-de-genes",
+      "name": "Pain de Gênes",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "tres-leches",
+      "name": "Tres leches",
+      "chapter": "Cakes",
+      "units": 2,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "molten-chocolate",
+      "name": "Molten chocolate",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "german-chocolate-cake",
+      "name": "German chocolate cake",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    },
+    {
+      "slug": "hummingbird-cake",
+      "name": "Hummingbird cake",
+      "chapter": "Cakes",
+      "units": 1,
+      "done": 0,
+      "status": "waiting"
+    }
+  ],
+  "derived": {
+    "at": "2026-10-22T16:36:09+03:00",
+    "from": "public-site/content (read-only)",
+    "recipesOnSite": 65
+  },
+  "history": [
+    {
+      "t": "2026-10-22T16:36:09+03:00",
+      "recipes": 58,
+      "total": 193
     }
   ]
 }
