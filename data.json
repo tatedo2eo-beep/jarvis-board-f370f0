@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:41:19+03:00",
+  "updatedAt": "2026-10-22T14:42:39+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Animations",
-      "pct": 70
+      "pct": 90
     },
     {
       "name": "Recipes",
@@ -43,14 +43,13 @@
       "name": "Writing recipes, batch 1 (25)",
       "detail": "original wording, USDA nutrition",
       "status": "IN PROGRESS"
-    },
-    {
-      "name": "Animation v3 (futuristic hero)",
-      "detail": "longer, more realistic",
-      "status": "IN PROGRESS"
     }
   ],
   "waiting": [
+    {
+      "name": "Animation v3 feedback",
+      "detail": "5 s futuristic hero ready"
+    },
     {
       "name": "Animation demo feedback",
       "detail": "The Stack hero + tap-to-play step clip"
@@ -115,6 +114,14 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 14:43",
+      "e": "Recipes on site: 2 (2 test recipes, batch of 25 in progress)"
+    },
+    {
+      "t": "Oct 22 14:42",
+      "e": "Animation v3 done: 5 s futuristic hero + new step clip"
+    },
     {
       "t": "Oct 22 14:42",
       "e": "2 of 100 recipes written; site build script and page templates in progress (not live yet)"
