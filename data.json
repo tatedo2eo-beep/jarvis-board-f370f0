@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T17:39:26+03:00",
+  "updatedAt": "2026-10-22T17:50:13+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -78,7 +78,7 @@
     },
     {
       "name": "Recipes (launch chapters)",
-      "detail": "118 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 23/57 (in progress), cakes 0/41",
+      "detail": "118 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 23/57 (batch 3 restarted 17:51), cakes 0/41",
       "status": "IN PROGRESS",
       "node": "Recipes"
     },
@@ -242,6 +242,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 17:51",
+      "e": "Check: 118/193 launch recipes; recipe writing had stalled since 17:28, restarted with pasta batch 3 then cakes; test site live; anim v3 19 shots"
+    },
     {
       "t": "Oct 22 17:40",
       "e": "Check: 118/193 launch recipes; pasta 23/57 (batch 3 next, no new files since 17:28); test site live; anim v3 19 shots"
@@ -1610,7 +1614,7 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T17:39:26+03:00",
+    "at": "2026-10-22T17:50:13+03:00",
     "from": "public-site/content (read-only)",
     "recipesOnSite": 125
   },
