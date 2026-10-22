@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:10:49+03:00",
+  "updatedAt": "2026-10-22T14:25:27+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Animations",
-      "pct": 35
+      "pct": 50
     },
     {
       "name": "Recipes",
@@ -42,8 +42,8 @@
   ],
   "waiting": [
     {
-      "name": "Pick animation concept",
-      "detail": "The Stack, Market to Plate, or Menu Wall"
+      "name": "Animation demo feedback",
+      "detail": "The Stack hero + tap-to-play step clip"
     },
     {
       "name": "Build permission",
@@ -109,6 +109,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 14:25",
+      "e": "Realistic demo done: Stack hero, recipe list, tap-to-play step clip (phone + PC)"
+    },
     {
       "t": "Oct 22 14:10",
       "e": "Studied 61 animation videos from 10 creators, 3 concepts ready"
