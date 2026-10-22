@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:01:37+03:00",
+  "updatedAt": "2026-10-22T14:10:49+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Animations",
-      "pct": 20
+      "pct": 35
     },
     {
       "name": "Recipes",
@@ -35,11 +35,6 @@
   ],
   "running": [
     {
-      "name": "Studying 11 animation videos",
-      "detail": "plus each creator's other videos",
-      "status": "IN PROGRESS"
-    },
-    {
       "name": "Animation preview v2",
       "detail": "v1 too flat, redoing after Joe's notes",
       "status": "NEXT"
@@ -47,8 +42,8 @@
   ],
   "waiting": [
     {
-      "name": "Animation feedback",
-      "detail": "what v2 should look like"
+      "name": "Pick animation concept",
+      "detail": "The Stack, Market to Plate, or Menu Wall"
     },
     {
       "name": "Build permission",
@@ -114,6 +109,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 14:10",
+      "e": "Studied 61 animation videos from 10 creators, 3 concepts ready"
+    },
     {
       "t": "Oct 22 14:02",
       "e": "Started studying Joe's 11 animation videos and their creators"
