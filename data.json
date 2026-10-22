@@ -1,10 +1,10 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:42:39+03:00",
+  "updatedAt": "2026-10-22T14:52:52+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
-    "done": 2,
+    "done": 10,
     "total": 100
   },
   "stages": [
@@ -22,11 +22,11 @@
     },
     {
       "name": "Recipes",
-      "pct": 2
+      "pct": 10
     },
     {
       "name": "Site build",
-      "pct": 30
+      "pct": 45
     },
     {
       "name": "Launch",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Writing recipes, batch 1 (25)",
-      "detail": "original wording, USDA nutrition",
+      "detail": "10 of 25 done, original wording, USDA nutrition",
       "status": "IN PROGRESS"
     }
   ],
@@ -114,6 +114,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 14:53",
+      "e": "Recipes written: 10 of 25 in batch 1; site builds locally, not live yet"
+    },
     {
       "t": "Oct 22 14:43",
       "e": "Recipes on site: 2 (2 test recipes, batch of 25 in progress)"
