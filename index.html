@@ -117,7 +117,8 @@ body.B .seg button[aria-pressed="true"]{background:#3dff8f}
 .ed{position:absolute;left:8px;top:8px;bottom:8px;width:50%;background:rgba(14,14,17,.9);border:1px solid #26262c;border-radius:7px;z-index:2;display:flex;flex-direction:column;overflow:hidden}
 .ed .eh{display:flex;align-items:center;gap:5px;padding:6px 8px;border-bottom:1px solid #222;font-size:10px;color:#aaa;flex:none}
 .ed .eh i{width:8px;height:8px;border-radius:50%;background:#ff5f57}.ed .eh i:nth-child(2){background:#febc2e}.ed .eh i:nth-child(3){background:#28c840}
-.ed .eh span{margin-left:auto;color:#666}
+.ed .eh span{margin-left:auto;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:899px){#bLn{display:none}}
 .eb{position:relative;flex:1;overflow-y:auto;overflow-x:hidden;padding:6px 8px 20px;font:9.5px/1.75 var(--mono);color:#6b6b75}
 .eb h3{font:800 10px/1.6 var(--mono);color:#ddd;margin-top:6px}
 .eb h3 span{color:#777;font-weight:600}
