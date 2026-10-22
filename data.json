@@ -1,0 +1,58 @@
+{
+  "brand": "Grok Bot × Joe",
+  "updatedAt": "2026-10-22T13:55:00+03:00",
+  "timeZone": "Africa/Cairo",
+  "headline": { "label": "RECIPES WRITTEN", "done": 0, "total": 100 },
+  "stages": [
+    { "name": "Research",   "pct": 100 },
+    { "name": "Plan",       "pct": 100 },
+    { "name": "Animations", "pct": 20 },
+    { "name": "Recipes",    "pct": 0 },
+    { "name": "Site build", "pct": 0 },
+    { "name": "Launch",     "pct": 0 }
+  ],
+  "running": [
+    { "name": "Animation preview",  "detail": "Claude Code + Jarvis", "status": "IN PROGRESS" },
+    { "name": "AI chat cost check", "detail": "",                     "status": "IN PROGRESS" }
+  ],
+  "waiting": [
+    { "name": "Build permission", "detail": "say 'Jarvis you are allowed to build'" },
+    { "name": "Tax setup",        "detail": "pending" }
+  ],
+  "graph": {
+    "root": "Joe",
+    "hub": "Jarvis",
+    "children": [
+      { "name": "Claude Code", "icon": "code",   "active": true },
+      { "name": "Research",    "icon": "search", "active": false },
+      { "name": "Recipes",     "icon": "drop",   "active": false },
+      { "name": "Animations",  "icon": "anim",   "active": true },
+      { "name": "Site",        "icon": "site",   "active": false },
+      { "name": "Launch",      "icon": "launch", "active": false }
+    ]
+  },
+  "setup": [
+    { "k": "Claude Code", "v": "Connected" },
+    { "k": "Tami's site", "v": "Live · untouched" },
+    { "k": "Hosting",     "v": "Cloudflare Pages Free · at build time" },
+    { "k": "Domain",      "v": "Bought at launch · about $10/yr" }
+  ],
+  "log": [
+    { "t": "Oct 22 13:55", "e": "Board went live with auto-updates" },
+    { "t": "Oct 22 13:45", "e": "Dashboard created" },
+    { "t": "Oct 22",       "e": "Healthy rules set (High Protein ≥10 g/100 kcal, plus WHO Healthy)" },
+    { "t": "Oct 22",       "e": "Claude Code installed and logged in" },
+    { "t": "Oct 19",       "e": "Your 6 animation videos reviewed" },
+    { "t": "Oct 19",       "e": "19-page full plan PDF" },
+    { "t": "Oct 19",       "e": "TikTok promo estimates" },
+    { "t": "Oct 19",       "e": "Legal, age and payment research" }
+  ],
+  "toasts": [
+    { "icon": "✓", "title": "CLAUDE CODE",       "status": "CONNECTED",   "kind": "ok" },
+    { "icon": "✓", "title": "HEALTHY RULES",     "status": "SET",         "kind": "ok" },
+    { "icon": "⏳", "title": "ANIMATION PREVIEW", "status": "IN PROGRESS", "kind": "wait" }
+  ],
+  "toastEveryMs": 4500,
+  "toastShowMs": 2600,
+  "refreshSeconds": 60
+}

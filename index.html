@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#111010">
+<title>Jarvis Board · Grok Bot × Joe</title>
+<!--
+  Jarvis Board. All content comes from data.json (fetched on load and every
+  refreshSeconds with cache-busting). Edit data.json, then run ./update.sh.
+  Palette: "Noir & Gold" with "Midnight & Rose Gold" accents, copied from
+  the dark themes on Tami's site (js/themes.js).
+-->
+<style>
+:root{
+  /* Noir & Gold */
+  --bg:#111010; --surface:#1A1816; --surface2:#25221E; --text:#F2EBDD; --muted:#B5AB9B;
+  --gold:#C9A45C; --goldText:#D8B672; --line:#3B352D; --ongold:#16110A;
+  /* Midnight & Rose Gold accents */
+  --rose:#E8B4A0; --roseText:#EDBDA9; --sage:#CFE8D2; --plum:#2B2529;
+  --dim:#7d7466;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Libre Franklin","Helvetica Neue",Arial,system-ui,sans-serif;
+  --mono:ui-monospace,"JetBrains Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:12px;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;padding:0 12px 12px;background:radial-gradient(1200px 500px at 70% -10%,rgba(201,164,92,.08),transparent 60%),var(--bg)}
+
+/* ---------- top bar ---------- */
+.top{display:flex;align-items:center;gap:16px;height:56px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:-.2px;white-space:nowrap}
+.logo em{font-style:italic;color:var(--goldText);font-weight:400}
+.logo .mark{width:32px;height:32px;border-radius:8px;background:var(--surface2);border:1px solid var(--gold);position:relative;flex:none}
+.logo .mark i{position:absolute;top:9px;width:5px;height:12px;border-radius:3px;background:var(--goldText);transform:rotate(12deg)}
+.logo .mark i:first-child{left:10px}.logo .mark i:last-child{left:17px}
+.sub{color:var(--muted);font-size:10px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.stamp{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:7px}
+.stamp::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);box-shadow:0 0 8px rgba(207,232,210,.6);animation:blink 2s ease-in-out infinite}
+.stamp.err::before{background:var(--rose);box-shadow:none}
+.clock{border:1px solid var(--gold);color:var(--goldText);border-radius:999px;padding:6px 15px;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.06em}
+@keyframes blink{50%{opacity:.25}}
+
+/* ---------- grid ---------- */
+.grid{display:grid;gap:12px;grid-template-columns:1fr 1fr 350px;
+  grid-template-areas:"head head stages" "graph graph side" "log log log"}
+.p-head{grid-area:head}.p-stages{grid-area:stages}.p-graph{grid-area:graph}.side{grid-area:side;display:flex;flex-direction:column;gap:12px}.p-log{grid-area:log}
+
+.panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:11px 14px;overflow:hidden}
+.panel::before,.panel::after{content:"";position:absolute;width:10px;height:10px;border:1px solid var(--gold);pointer-events:none;opacity:.7}
+.panel::before{top:5px;left:5px;border-right:0;border-bottom:0}
+.panel::after{bottom:5px;right:5px;border-left:0;border-top:0}
+.ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 10px;margin-bottom:7px}
+.lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--goldText)}
+.meta{font-size:10px;color:var(--dim);letter-spacing:.08em;white-space:nowrap}
+.g{color:var(--sage)}
+.gold{color:var(--goldText)}
+
+/* headline + chart */
+.p-head{display:flex;flex-direction:column}
+.p-head .body{display:flex;gap:14px;flex:1;min-height:0}
+#chart{flex:1;min-width:0;height:122px;display:block}
+#chart text,#graph text{font-family:var(--sans)}
+.big{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;min-width:210px}
+.big .k{font-size:10px;color:var(--muted);letter-spacing:.22em}
+.big .v{font-family:var(--serif);font-weight:600;font-size:58px;line-height:1;margin:4px 0;color:var(--text)}
+.big .v small{font-size:28px;color:var(--goldText);font-style:italic;font-weight:400}
+.big .s{font-size:10px;color:var(--dim)}
+.dotline{stroke:#2c2823;stroke-dasharray:2 4}
+
+/* stages */
+.stage{display:grid;grid-template-columns:16px 1fr 110px 40px;align-items:center;gap:8px;padding:4px 0;font-size:11px}
+.stage .n{color:var(--dim);font-family:var(--serif);font-style:italic;font-size:12px}
+.stage .nm{text-transform:uppercase;font-weight:600;letter-spacing:.1em;color:var(--muted)}
+.bar{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden}
+.bar b{display:block;height:100%;background:linear-gradient(90deg,#8a6d36,var(--gold),var(--goldText));transform-origin:left;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.8,.2,1);border-radius:3px}
+.stage .pc{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.stage.zero .pc{color:var(--dim)}
+.stage.done .nm{color:var(--text)}
+.foot{border-top:1px solid var(--line);margin-top:6px;padding-top:6px;display:flex;justify-content:space-between;font-size:10px;color:var(--dim)}
+
+/* side lists */
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:3px 0;border-bottom:1px solid #26231f;font-size:11.5px}
+.row:last-child{border-bottom:0}
+.row .d{color:var(--dim);font-size:10px;margin-top:2px}
+.tag{font-size:9px;font-weight:700;letter-spacing:.12em;padding:2px 7px;border-radius:999px;white-space:nowrap}
+.tag.run{color:var(--ongold);background:var(--gold)}
+.tag.wait{color:var(--roseText);border:1px solid var(--rose)}
+.ind{height:3px;background:var(--surface2);margin-top:4px;border-radius:2px;overflow:hidden;width:100%}
+.ind i{display:block;height:100%;width:35%;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:ind 1.8s ease-in-out infinite}
+@keyframes ind{0%{transform:translateX(-100%)}100%{transform:translateX(290%)}}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:11.5px}
+.kv .k{color:var(--muted);white-space:nowrap}.kv .v{text-align:right}
+
+/* graph */
+.p-graph{display:flex;flex-direction:column;background:
+  linear-gradient(rgba(242,235,221,.025) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,rgba(242,235,221,.025) 1px,transparent 1px) 0 0/24px 24px,var(--surface)}
+#graph{width:100%;flex:1 1 0;min-height:250px;display:block}
+.lnk{fill:none;stroke:#36312a;stroke-width:1.6}
+.lnk.on{stroke:#5e4c2a;stroke-width:2}
+.flow{fill:none;stroke:var(--goldText);stroke-width:2;stroke-dasharray:5 13;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-18}}
+.ring{transform-box:fill-box;transform-origin:center;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.halo{transform-box:fill-box;transform-origin:center;animation:breath 2.8s ease-in-out infinite}
+@keyframes breath{50%{opacity:.35;transform:scale(1.08)}}
+.nlabel{font-size:10.5px;font-weight:700;letter-spacing:.14em;fill:var(--text);text-anchor:middle}
+.nstate{font-size:9px;letter-spacing:.14em;text-anchor:middle}
+.bob{animation:bob 3s ease-in-out infinite;transform-box:fill-box}
+@keyframes bob{50%{transform:translateY(-3px)}}
+
+/* log */
+.logwin{height:104px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(#000,#000 80%,transparent);mask-image:linear-gradient(#000,#000 80%,transparent)}
+.logtrack{animation:scroll 26s linear 4s infinite}
+.logwin:hover .logtrack{animation-play-state:paused}
+@keyframes scroll{to{transform:translateY(-50%)}}
+.lr{display:grid;grid-template-columns:110px 14px 1fr 70px;gap:10px;align-items:center;padding:4px 0;border-bottom:1px solid #24211d;font-size:11.5px}
+.lr .t{color:var(--dim);font-variant-numeric:tabular-nums}
+.lr .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.lr .st{text-align:right;font-weight:700;font-size:10px;letter-spacing:.14em}
+.lr.new .e{color:var(--goldText)}
+.lr.new .dot{background:var(--sage);box-shadow:0 0 6px var(--sage)}
+
+/* toast */
+.ov{position:fixed;inset:0;background:rgba(10,9,9,.62);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s;z-index:10;padding:18px}
+.ov.show{opacity:1}
+.toast{width:min(460px,100%);background:var(--surface);border:1px solid var(--gold);border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 4px var(--bg),0 0 0 5px rgba(201,164,92,.45);
+  transform:scale(.9) translateY(10px);opacity:0;transition:transform .45s cubic-bezier(.2,1.3,.3,1),opacity .3s;overflow:hidden}
+.ov.show .toast{transform:none;opacity:1}
+.rule{height:6px;border-top:1px solid var(--gold);border-bottom:1px solid var(--line);margin:0 14px}
+.rule.t{margin-top:10px}.rule.b{margin-bottom:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--gold)}
+.tb{display:flex;gap:16px;align-items:center;padding:14px 18px}
+.ticon{font-family:"DejaVu Sans","Segoe UI Symbol",system-ui,sans-serif;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:24px;font-weight:700;flex:none;color:var(--ongold);background:var(--sage)}
+.ticon.wait{background:var(--gold)}
+.ticon.new{background:var(--rose);color:#1A1214}
+.tk{font-size:10px;color:var(--dim);letter-spacing:.2em}
+.tt{font-size:13px;font-weight:700;letter-spacing:.14em;margin:4px 0 2px;color:var(--muted)}
+.ts{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.1}
+.ts.ok{color:var(--sage)}.ts.wait{color:var(--goldText)}.ts.new{color:var(--text);font-size:19px;font-weight:500}
+.tf{display:flex;justify-content:space-between;padding:0 18px 4px;font-size:9px;color:var(--dim);letter-spacing:.14em}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .grid{grid-template-columns:1fr 1fr;grid-template-areas:"head head" "stages side" "graph graph" "log log"}
+}
+@media (max-width:680px){
+  body{padding:0 10px 10px}
+  .grid{grid-template-columns:1fr;grid-template-areas:"head" "stages" "graph" "side" "log";gap:10px}
+  .top{height:auto;padding:10px 0;flex-wrap:wrap;gap:6px 10px;margin-bottom:10px}
+  .logo{font-size:21px}
+  .clock{margin-left:auto;font-size:13px;padding:5px 12px}
+  .sub{order:3;flex-basis:100%;font-size:9px;white-space:normal}
+  .stamp{order:4;flex-basis:100%;font-size:10px}
+  .p-head .body{flex-direction:column-reverse;gap:4px}
+  .big{align-items:flex-start;min-width:0}
+  .big .v{font-size:48px}
+  #chart{height:160px;flex:none;width:100%}
+  #graph{flex:none;min-height:0;height:auto;aspect-ratio:360/620}
+  .stage{grid-template-columns:14px 1fr 80px 38px}
+  .lr{grid-template-columns:78px 10px 1fr;gap:8px}
+  .lr .st{display:none}
+  .logwin{height:190px}
+  .tb{padding:12px 14px}.ts{font-size:24px}.ts.new{font-size:17px}.ticon{width:44px;height:44px;font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="logo"><span class="mark"><i></i><i></i></span><span id="brand">Grok Bot <em>×</em> Joe</span></div>
+  <div class="sub" id="sub">Live project board</div>
+  <div class="stamp" id="stamp">Loading…</div>
+  <div class="clock" id="clock">--:--:--</div>
+</header>
+
+<main class="grid">
+  <section class="panel p-head">
+    <div class="ph"><span class="lbl">Project progress · six stages</span><span class="meta" id="headMeta"></span></div>
+    <div class="body">
+      <svg id="chart" aria-label="Project progress chart"></svg>
+      <div class="big"><span class="k" id="hLabel"></span><span class="v" id="hVal"></span><span class="s" id="hSub"></span></div>
+    </div>
+  </section>
+
+  <section class="panel p-stages">
+    <div class="ph"><span class="lbl">Stages</span><span class="meta">each bar = one stage</span></div>
+    <div id="stages"></div>
+    <div class="foot"><span id="stDone"></span><span id="stAsOf"></span></div>
+  </section>
+
+  <section class="panel p-graph">
+    <div class="ph"><span class="lbl">The team <span class="meta" style="color:var(--dim);letter-spacing:.06em;text-transform:none;font-weight:400">&nbsp; joe › jarvis › six lanes</span></span><span class="meta g" id="activeMeta"></span></div>
+    <svg id="graph" aria-label="Team node graph"></svg>
+  </section>
+
+  <div class="side">
+    <section class="panel"><div class="ph"><span class="lbl">Running</span><span class="meta" id="runMeta"></span></div><div id="running"></div></section>
+    <section class="panel"><div class="ph"><span class="lbl">Waiting on Joe</span><span class="meta" id="waitMeta"></span></div><div id="waiting"></div></section>
+    <section class="panel"><div class="ph"><span class="lbl">Setup</span><span class="meta">status</span></div><div class="kv" id="setup"></div></section>
+  </div>
+
+  <section class="panel p-log">
+    <div class="ph"><span class="lbl">Updates · newest first</span><span class="meta" id="logMeta"></span></div>
+    <div class="logwin"><div class="logtrack" id="logtrack"></div></div>
+  </section>
+</main>
+
+<div class="ov" id="ov"><div class="toast">
+  <div class="rule t"></div>
+  <div class="tb"><div class="ticon" id="tIcon"></div>
+    <div><div class="tk" id="tKick">JARVIS · STATUS</div><div class="tt" id="tTitle"></div><div class="ts" id="tStatus"></div></div></div>
+  <div class="tf"><span id="tNum"></span><span id="tAsOf"></span></div>
+  <div class="rule b"></div>
+</div></div>
+
+<script>
+(function(){
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const params = new URLSearchParams(location.search);
+let D = null, lastJSON = "", lastGraphKey = "", lastOk = 0, fetchErr = false;
+
+/* ---------- helpers ---------- */
+const tz = () => (D && D.timeZone) || "Africa/Cairo";
+const fmtClock = () => new Intl.DateTimeFormat("en-GB",{timeZone:tz(),hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
+function asOfText(){
+  if (!D || !D.updatedAt) return "";
+  const d = new Date(D.updatedAt);
+  return new Intl.DateTimeFormat("en-GB",{timeZone:tz(),day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false}).format(d).toUpperCase() + " CAIRO";
+}
+function agoText(){
+  if (!D || !D.updatedAt) return "";
+  const m = Math.max(0, Math.round((Date.now() - new Date(D.updatedAt)) / 60000));
+  if (m < 1) return "Updated just now";
+  if (m < 60) return `Updated ${m} min ago`;
+  const h = Math.floor(m / 60);
+  if (h < 48) return `Updated ${h} h ${m % 60 ? (m % 60) + " min " : ""}ago`;
+  return `Updated ${Math.floor(h / 24)} days ago`;
+}
+function tickStamp(){
+  const s = $("stamp");
+  if (!D){ s.textContent = fetchErr ? "Can't load data" : "Loading…"; s.classList.toggle("err", fetchErr); return; }
+  s.textContent = agoText() + (fetchErr ? " · offline" : "");
+  s.classList.toggle("err", fetchErr);
+}
+setInterval(() => { $("clock").textContent = fmtClock().format(new Date()); }, 1000);
+$("clock").textContent = fmtClock().format(new Date());
+setInterval(tickStamp, 15000);
+
+/* ---------- chart ---------- */
+function drawChart(){
+  const svg = $("chart"), W = svg.clientWidth || 600, H = svg.clientHeight || 130, st = D.stages, n = st.length;
+  const m = {l:34, r:16, t:22, b: W < 520 ? 34 : 24};
+  const x = i => m.l + i * (W - m.l - m.r) / Math.max(1, n - 1);
+  const y = v => m.t + (1 - v/100) * (H - m.t - m.b);
+  let h = `<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9A45C" stop-opacity=".32"/><stop offset="1" stop-color="#C9A45C" stop-opacity="0"/></linearGradient></defs>`;
+  [0,50,100].forEach(v => h += `<line class="dotline" x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="2" y="${y(v)+3}" fill="#6b6357" font-size="9">${v}%</text>`);
+  const pts = st.map((s,i) => [x(i), y(s.pct)]);
+  const path = pts.map((p,i) => (i?"L":"M")+p[0].toFixed(1)+","+p[1].toFixed(1)).join("");
+  h += `<path d="${path}L${x(n-1)},${H-m.b}L${x(0)},${H-m.b}Z" fill="url(#ag)"/>`;
+  h += `<path d="${path}" fill="none" stroke="#C9A45C" stroke-opacity=".35" stroke-width="7" stroke-linejoin="round"/>`;
+  h += `<path d="${path}" fill="none" stroke="#D8B672" stroke-width="2.2" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="1.6s" fill="freeze"/></path>`;
+  st.forEach((s,i) => {
+    const [px,py] = pts[i], anchor = i===0 ? "start" : i===n-1 ? "end" : "middle", live = s.pct>0 && s.pct<100;
+    h += `<circle cx="${px}" cy="${py}" r="${live?5:3.5}" fill="${s.pct?"#D8B672":"#1A1816"}" stroke="#D8B672" stroke-width="1.8"/>`;
+    if (live) h += `<circle cx="${px}" cy="${py}" r="9" fill="none" stroke="#CFE8D2" class="halo"/>`;
+    h += `<text x="${px}" y="${py - 9}" text-anchor="${anchor}" font-size="10" font-weight="700" fill="${s.pct>=100?"#CFE8D2":s.pct?"#D8B672":"#7d7466"}">${s.pct}%</text>`;
+    const ly = (W < 520 && i % 2) ? H-16 : H-4;
+    h += `<text x="${px}" y="${ly}" text-anchor="${anchor}" font-size="9" fill="#9a9081" letter-spacing=".1em">${esc(s.name.toUpperCase())}</text>`;
+  });
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = h;
+}
+
+/* ---------- node graph ---------- */
+const ICON = {
+  code:  `<rect x="-23" y="-23" width="46" height="46" rx="11" fill="#C9A45C"/><text y="6" text-anchor="middle" font-size="17" font-weight="800" fill="#16110A" style="font-family:var(--mono)">&lt;/&gt;</text>`,
+  search:`<rect x="-27" y="-17" width="54" height="34" rx="17" fill="#B5AB9B"/><circle cx="-3" cy="-2" r="7.5" fill="none" stroke="#1A1816" stroke-width="3.2"/><line x1="3" y1="4" x2="10" y2="11" stroke="#1A1816" stroke-width="3.6" stroke-linecap="round"/>`,
+  drop:  `<path d="M0,-27 C14,-10 23,0 23,10 A23,21 0 0 1 -23,10 C-23,0 -14,-10 0,-27Z" fill="#CFE8D2"/><rect x="-8" y="0" width="5" height="10" rx="2.5" fill="#173A22"/><rect x="4" y="0" width="5" height="10" rx="2.5" fill="#173A22"/>`,
+  anim:  `<polygon points="-10,-24 10,-24 24,-10 24,10 10,24 -10,24 -24,10 -24,-10" fill="#E8B4A0"/><polygon points="-6,-9 10,0 -6,9" fill="#1A1214"/>`,
+  site:  `<polygon points="0,-26 26,21 -26,21" fill="#8E7A9A"/><rect x="-9" y="2" width="5" height="10" rx="2.5" fill="#1D1A1F"/><rect x="4" y="2" width="5" height="10" rx="2.5" fill="#1D1A1F"/>`,
+  launch:`<rect x="-21" y="-25" width="42" height="50" rx="10" fill="#8C3B3B"/><path d="M0,-13 L8,4 L0,0 L-8,4Z" fill="#F2EBDD"/><rect x="-2" y="2" width="4" height="9" fill="#F2EBDD"/>`
+};
+function layout(){
+  const mobile = $("graph").clientWidth < 560, kidsData = D.graph.children;
+  if (!mobile){
+    const pos = [[235,68],[565,62],[735,160],[690,292],[515,300],[265,298]];
+    return {W:820,H:372,joe:{x:80,y:186},hub:{x:400,y:180},kids:kidsData.map((c,i)=>{const p=pos[i%pos.length];return {x:p[0],y:p[1]+(i>=pos.length?20:0)};}),mobile};
+  }
+  const rows = Math.ceil(kidsData.length/2);
+  return {W:360,H:330+rows*105-25,joe:{x:180,y:52},hub:{x:180,y:200},kids:kidsData.map((c,i)=>({x:i%2?290:70,y:335+Math.floor(i/2)*105})),mobile};
+}
+function drawGraph(){
+  const L = layout(), key = JSON.stringify(D.graph) + L.mobile;
+  if (key === lastGraphKey) return; lastGraphKey = key;
+  const svg = $("graph"); svg.setAttribute("viewBox", `0 0 ${L.W} ${L.H}`);
+  if (L.mobile) svg.style.aspectRatio = `${L.W}/${L.H}`; else svg.style.aspectRatio = "";
+  const {joe,hub,kids} = L, G = D.graph;
+  const curve = (a,b) => L.mobile
+    ? `M${a.x},${a.y} L${a.x},${b.y-30} Q${a.x},${b.y} ${a.x+(b.x>a.x?30:-30)},${b.y} L${b.x},${b.y}`
+    : `M${a.x},${a.y} C${(a.x+b.x)/2},${a.y} ${(a.x+b.x)/2},${b.y} ${b.x},${b.y}`;
+  let h = `<path class="lnk" d="M${joe.x},${joe.y} L${hub.x},${hub.y}"/>`;
+  G.children.forEach((c,i) => {
+    const d = curve(hub, kids[i]);
+    h += `<path class="lnk ${c.active?"on":""}" d="${d}"/>`;
+    if (c.active) h += `<path class="flow" d="${d}"/><circle r="4.5" fill="#D8B672"><animateMotion dur="${1.7+i*0.15}s" repeatCount="indefinite" path="${d}"/></circle>`;
+  });
+  const waitingN = (D.waiting||[]).length;
+  h += `<g transform="translate(${joe.x},${joe.y})"><g class="bob">
+    <rect x="-29" y="-23" width="58" height="46" rx="10" fill="#F2EBDD"/><rect x="-21" y="-13" width="42" height="21" rx="6" fill="#111010"/>
+    <rect x="-11" y="-8" width="6" height="11" rx="3" fill="#CFE8D2"/><rect x="5" y="-8" width="6" height="11" rx="3" fill="#CFE8D2"/></g>
+    <text class="nlabel" y="42" font-size="12">${esc(G.root.toUpperCase())}</text>
+    <text class="nstate" y="56" fill="#E8B4A0">${waitingN ? waitingN + " WAITING" : "ALL CLEAR"}</text></g>`;
+  h += `<g transform="translate(${hub.x},${hub.y})">
+    <circle r="68" fill="rgba(201,164,92,.06)" class="halo"/>
+    <circle r="58" fill="none" stroke="#C9A45C" stroke-width="1.4" stroke-dasharray="2 7" class="ring"/>
+    <circle r="49" fill="#0d0c0c" stroke="#5e4c2a" stroke-width="2"/>
+    <circle r="49" fill="url(#orb)"/>
+    <rect x="-16" y="-15" width="10" height="27" rx="5" fill="#F2EBDD" transform="rotate(12 -11 -2)"/><rect x="6" y="-15" width="10" height="27" rx="5" fill="#F2EBDD" transform="rotate(12 11 -2)"/>
+    <rect x="-38" y="63" width="76" height="20" rx="10" fill="#C9A45C"/><text class="nlabel" y="77" fill="#16110A" style="fill:#16110A">${esc(G.hub.toUpperCase())}</text></g>`;
+  G.children.forEach((c,i) => {
+    const k = kids[i], w = c.name.length*8+20;
+    h += `<g transform="translate(${k.x},${k.y})" opacity="${c.active?1:.72}">
+      <ellipse cx="0" cy="31" rx="21" ry="3.5" fill="#000" opacity=".5"/>
+      <g class="${c.active?"bob":""}">${ICON[c.icon] || ICON.site}</g>
+      <rect x="${-w/2}" y="36" width="${w}" height="18" rx="9" fill="#1A1816" stroke="${c.active?"#C9A45C":"#3B352D"}"/>
+      <text class="nlabel" y="49" ${c.active?'style="fill:#D8B672"':''}>${esc(c.name.toUpperCase())}</text>
+      <text class="nstate" y="66" fill="${c.active?"#CFE8D2":"#6b6357"}">${c.active?"● ACTIVE":"idle"}</text></g>`;
+  });
+  svg.innerHTML = `<defs><radialGradient id="orb" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#F2EBDD" stop-opacity=".18"/><stop offset=".55" stop-color="#F2EBDD" stop-opacity="0"/></radialGradient></defs>` + h;
+  $("activeMeta").textContent = `${G.children.filter(c=>c.active).length} ACTIVE LINKS`;
+}
+
+/* ---------- render everything ---------- */
+function render(){
+  const st = D.stages, done = st.filter(s => s.pct >= 100).length, asOf = asOfText();
+  $("brand").innerHTML = esc(D.brand).replace("×", "<em>×</em>");
+  $("sub").textContent = `Live project board · ${done}/${st.length} stages done · ${D.headline.label.toLowerCase()} ${D.headline.done}/${D.headline.total} · refreshes every ${D.refreshSeconds||60} s`;
+  $("hLabel").textContent = D.headline.label;
+  $("hVal").innerHTML = `${D.headline.done}<small> / ${D.headline.total}</small>`;
+  $("hSub").textContent = `as of ${asOf.toLowerCase()}`;
+  $("headMeta").innerHTML = `<span class="g">${done} DONE</span> · ${st.filter(s=>s.pct>0&&s.pct<100).length} IN PROGRESS · ${st.filter(s=>!s.pct).length} NOT STARTED`;
+
+  // stages: keep existing bars so they animate between values
+  const box = $("stages");
+  if (box.children.length !== st.length) box.innerHTML = st.map(() => `<div class="stage"><span class="n"></span><span class="nm"></span><span class="bar"><b></b></span><span class="pc"></span></div>`).join("");
+  st.forEach((s,i) => {
+    const r = box.children[i];
+    r.className = `stage ${s.pct>=100?"done":""} ${s.pct?"":"zero"}`;
+    r.children[0].textContent = i+1; r.children[1].textContent = s.name;
+    r.children[3].textContent = s.pct + "%"; r.children[3].className = "pc " + (s.pct>=100 ? "g" : s.pct ? "gold" : "");
+    const b = r.querySelector("b"); requestAnimationFrame(() => setTimeout(() => b.style.transform = `scaleX(${Math.min(100,Math.max(0,s.pct))/100})`, 60));
+  });
+  $("stDone").innerHTML = `<span class="g">${done}/${st.length}</span> stages complete`;
+  $("stAsOf").textContent = asOf;
+
+  $("running").innerHTML = (D.running||[]).map(r => `<div class="row" style="display:block"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><span>${esc(r.name)}${r.detail?`<div class="d">${esc(r.detail)}</div>`:""}</span><span class="tag run">${esc(r.status||"IN PROGRESS")}</span></div><div class="ind"><i></i></div></div>`).join("") || `<div class="row d">Nothing running</div>`;
+  $("runMeta").textContent = `${(D.running||[]).length} jobs`;
+  $("waiting").innerHTML = (D.waiting||[]).map(w => `<div class="row"><span>${esc(w.name)}<div class="d">${esc(w.detail)}</div></span><span class="tag wait">WAITING</span></div>`).join("") || `<div class="row d">Nothing — all clear</div>`;
+  $("waitMeta").textContent = `${(D.waiting||[]).length} items`;
+  $("setup").innerHTML = (D.setup||[]).map(s => `<span class="k">${esc(s.k)}</span><span class="v g">${esc(s.v)}</span>`).join("");
+
+  const rows = (D.log||[]).map((l,i) => `<div class="lr ${i===0?"new":""}"><span class="t">${esc(l.t)}</span><span class="dot"></span><span class="e">${esc(l.e)}</span><span class="st g">DONE</span></div>`).join("");
+  const track = $("logtrack"); track.innerHTML = rows + rows;
+  track.style.animation = "none"; void track.offsetWidth; track.style.animation = "";
+  $("logMeta").textContent = `${(D.log||[]).length} entries · hover to pause`;
+
+  drawChart(); drawGraph(); tickStamp();
+}
+
+/* ---------- toasts ---------- */
+const queue = []; let ti = 0, hold = false;
+function showToast(t, n){
+  const kind = t.kind || "ok";
+  $("tIcon").textContent = t.icon; $("tIcon").className = "ticon " + kind;
+  $("tKick").textContent = kind === "new" ? "JARVIS · NEW UPDATE" : "JARVIS · STATUS";
+  $("tTitle").textContent = t.title; $("tStatus").textContent = t.status; $("tStatus").className = "ts " + kind;
+  $("tNum").textContent = n || ""; $("tAsOf").textContent = asOfText();
+  $("ov").classList.add("show");
+  if (!hold) setTimeout(() => $("ov").classList.remove("show"), (D && D.toastShowMs) || 2600);
+}
+function nextToast(){
+  if (!D) return;
+  if (queue.length) { showToast(queue.shift(), "NEW"); return; }
+  const list = D.toasts || []; if (!list.length) return;
+  const i = ti++ % list.length;
+  showToast(list[i], `UPDATE ${String(i+1).padStart(2,"0")}/${String(list.length).padStart(2,"0")}`);
+}
+function loopToasts(){ nextToast(); setTimeout(loopToasts, (D && D.toastEveryMs) || 4500); }
+
+/* new log entries → toasts (remembered per device) */
+const SEEN = "jarvis-board-seen";
+const keyOf = l => l.t + "|" + l.e;
+function checkNewLog(){
+  const keys = (D.log||[]).map(keyOf);
+  let seen = null; try { seen = JSON.parse(localStorage.getItem(SEEN)); } catch(e) {}
+  if (Array.isArray(seen)) {
+    const s = new Set(seen);
+    (D.log||[]).filter(l => !s.has(keyOf(l))).reverse().forEach(l => queue.push({icon:"✦", title:l.t.toUpperCase(), status:l.e, kind:"new"}));
+  }
+  try { localStorage.setItem(SEEN, JSON.stringify(keys)); } catch(e) {}
+}
+
+/* ---------- data loading ---------- */
+async function load(){
+  try {
+    const r = await fetch(`data.json?t=${Date.now()}`, {cache:"no-store"});
+    if (!r.ok) throw new Error(r.status);
+    const txt = await r.text(), data = JSON.parse(txt);
+    fetchErr = false; lastOk = Date.now();
+    if (txt !== lastJSON) {
+      const first = !D; lastJSON = txt; D = data; render(); checkNewLog();
+      if (!first && queue.length) nextToast();
+    } else tickStamp();
+  } catch (e) { fetchErr = true; tickStamp(); }
+  setTimeout(load, ((D && D.refreshSeconds) || 60) * 1000);
+}
+
+(async () => {
+  await load();
+  if (params.has("toast") && D) {
+    hold = true;
+    const v = params.get("toast");
+    if (v === "new" && D.log && D.log.length) showToast({icon:"✦", title:D.log[0].t.toUpperCase(), status:D.log[0].e, kind:"new"}, "NEW");
+    else { const i = (+v || 0) % D.toasts.length; showToast(D.toasts[i], `UPDATE ${String(i+1).padStart(2,"0")}/${String(D.toasts.length).padStart(2,"0")}`); }
+  } else if (!params.has("notoast")) setTimeout(loopToasts, 1800);
+})();
+let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (D) { drawChart(); drawGraph(); } }, 120); });
+})();
+</script>
+</body>
+</html>
