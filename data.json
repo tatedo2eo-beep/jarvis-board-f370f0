@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T13:58:26+03:00",
+  "updatedAt": "2026-10-22T14:00:18+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -35,17 +35,16 @@
   ],
   "running": [
     {
-      "name": "Animation preview",
-      "detail": "Claude Code + Jarvis",
-      "status": "IN PROGRESS"
-    },
-    {
-      "name": "AI chat cost check",
-      "detail": "",
-      "status": "IN PROGRESS"
+      "name": "Animation preview v2",
+      "detail": "v1 too flat, redoing after Joe's notes",
+      "status": "NEXT"
     }
   ],
   "waiting": [
+    {
+      "name": "Animation feedback",
+      "detail": "what v2 should look like"
+    },
     {
       "name": "Build permission",
       "detail": "say 'Jarvis you are allowed to build'"
@@ -111,6 +110,14 @@
   ],
   "log": [
     {
+      "t": "Oct 22 14:00",
+      "e": "AI chat cost checked: about $1.50 to $3 per 10,000 messages"
+    },
+    {
+      "t": "Oct 22 13:53",
+      "e": "Animation preview v1 done (Joe: too flat, redo)"
+    },
+    {
       "t": "Oct 22 13:55",
       "e": "Board went live with auto-updates"
     },
@@ -157,10 +164,10 @@
       "kind": "ok"
     },
     {
-      "icon": "⏳",
-      "title": "ANIMATION PREVIEW",
-      "status": "IN PROGRESS",
-      "kind": "wait"
+      "icon": "✓",
+      "title": "AI COST CHECK",
+      "status": "DONE",
+      "kind": "ok"
     }
   ],
   "toastEveryMs": 4500,
