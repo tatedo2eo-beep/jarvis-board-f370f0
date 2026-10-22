@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T18:11:18+03:00",
+  "updatedAt": "2026-10-22T18:17:48+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -12,7 +12,7 @@
     "note": "Preview build. Real domain is bought at launch."
   },
   "headline": {
-    "label": "Launch recipes",
+    "label": "Book dishes (all 34 chapters)",
     "done": 118,
     "total": 193
   },
@@ -58,7 +58,7 @@
     },
     {
       "name": "Recipes",
-      "pct": 61
+      "pct": 12
     },
     {
       "name": "Site build",
@@ -77,8 +77,8 @@
       "node": "Knowledge"
     },
     {
-      "name": "Recipes (launch chapters)",
-      "detail": "118 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 23/57 (batch 3 restarted 17:51), cakes 0/41",
+      "name": "Recipes (all 34 chapters)",
+      "detail": "103 of 885 dishes, 22 of 227 book flavours; pasta 18/46 next, then cakes 0/28. No new recipe files since 17:28",
       "status": "IN PROGRESS",
       "node": "Recipes"
     },
@@ -397,6 +397,10 @@
     {
       "t": "Oct 22 18:11",
       "e": "Recipes 118 of 193 launch dishes; pasta 23/57; no new work since 17:28"
+    },
+    {
+      "t": "Oct 22 18:18",
+      "e": "Scope now all 34 chapters: 103 of 885 dishes, 22 of 227 book flavours; no new recipes since 17:28"
     }
   ],
   "dishes": [
@@ -1618,7 +1622,7 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T18:11:18+03:00",
+    "at": "2026-10-22T18:17:48+03:00",
     "from": "public-site/content (read-only)",
     "recipesOnSite": 125
   },
