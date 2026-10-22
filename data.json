@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:52:52+03:00",
+  "updatedAt": "2026-10-22T14:53:09+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -47,7 +47,7 @@
   ],
   "waiting": [
     {
-      "name": "Animation v3 feedback",
+      "name": "Home scroll animation (rebuilding, flowing style)",
       "detail": "5 s futuristic hero ready"
     },
     {
