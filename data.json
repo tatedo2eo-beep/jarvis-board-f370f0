@@ -1,6 +1,6 @@
 {
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T14:58:13+03:00",
+  "updatedAt": "2026-10-22T15:04:26+03:00",
   "timeZone": "Africa/Cairo",
   "headline": {
     "label": "RECIPES WRITTEN",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Writing recipes",
-      "detail": "27 written; waiting on Joe's chapter choice",
+      "detail": "27 written; updating first 10 recipes for launch chapters",
       "status": "IN PROGRESS"
     }
   ],
@@ -118,6 +118,10 @@
     }
   ],
   "log": [
+    {
+      "t": "27 recipes done, live test site up, edits to 10 recipes in progress",
+      "e": "27 recipes done, live test site up, edits to 10 recipes in progress"
+    },
     {
       "t": "Oct 22 14:53",
       "e": "Recipes written: 10 of 25 in batch 1; site builds locally, not live yet"
