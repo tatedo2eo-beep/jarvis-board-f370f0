@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
   "title": "Jarvis Mission Control",
-  "updatedAt": "2026-10-22T17:07:50+03:00",
+  "updatedAt": "2026-10-22T17:16:59+03:00",
   "timeZone": "Africa/Cairo",
   "refreshSeconds": 60,
   "site": {
@@ -13,7 +13,7 @@
   },
   "headline": {
     "label": "Launch recipes",
-    "done": 95,
+    "done": 106,
     "total": 193
   },
   "chapters": [
@@ -34,7 +34,7 @@
     },
     {
       "name": "Pasta",
-      "done": 0,
+      "done": 11,
       "total": 57
     },
     {
@@ -58,7 +58,7 @@
     },
     {
       "name": "Recipes",
-      "pct": 49
+      "pct": 55
     },
     {
       "name": "Site build",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Recipes (launch chapters)",
-      "detail": "95 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 0/57 (next), cakes 0/41",
+      "detail": "106 of 193: burgers 13/13, chicken 43/43, cookies 39/39, pasta 11/57 (in progress), cakes 0/41",
       "status": "IN PROGRESS",
       "node": "Recipes"
     },
@@ -242,6 +242,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 17:17",
+      "e": "Check: 106/193 launch recipes; pasta batch 1 done (11/57, pushed 17:14); test site live; anim v3 19 shots"
+    },
     {
       "t": "Oct 22 17:08",
       "e": "Check: 95/193 launch recipes (burgers, chicken, cookies done); chicken files being re-checked (updated 17:04); pasta 0/57 next; test site live; anim v3 19 shots"
@@ -1009,48 +1013,48 @@
       "name": "Long dried (spaghetti, linguine, bucatini)",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "short-penne-rigatoni-fusilli",
       "name": "Short (penne, rigatoni, fusilli)",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "ribbons-fresh-egg-tagliatelle-fettuccine-pappardelle",
       "name": "Ribbons/fresh egg (tagliatelle, fettuccine, pappardelle)",
       "chapter": "Pasta",
       "units": 1,
-      "done": 0,
-      "status": "waiting"
+      "done": 1,
+      "status": "done"
     },
     {
       "slug": "sheets-baked-lasagne",
       "name": "Sheets/baked (lasagne)",
       "chapter": "Pasta",
       "units": 2,
-      "done": 0,
-      "status": "waiting"
+      "done": 2,
+      "status": "done"
     },
     {
       "slug": "filled-ravioli-tortellini-agnolotti",
       "name": "Filled (ravioli, tortellini, agnolotti)",
       "chapter": "Pasta",
       "units": 2,
-      "done": 0,
-      "status": "waiting"
+      "done": 2,
+      "status": "done"
     },
     {
       "slug": "gnocchi",
       "name": "Gnocchi",
       "chapter": "Pasta",
       "units": 4,
-      "done": 0,
-      "status": "waiting"
+      "done": 4,
+      "status": "done"
     },
     {
       "slug": "mac-and-cheese",
@@ -1598,9 +1602,9 @@
     }
   ],
   "derived": {
-    "at": "2026-10-22T17:07:50+03:00",
+    "at": "2026-10-22T17:16:59+03:00",
     "from": "public-site/content (read-only)",
-    "recipesOnSite": 102
+    "recipesOnSite": 113
   },
   "history": [
     {
@@ -1646,6 +1650,11 @@
     {
       "t": "2026-10-22T17:00:11+03:00",
       "recipes": 95,
+      "total": 193
+    },
+    {
+      "t": "2026-10-22T17:16:59+03:00",
+      "recipes": 106,
       "total": 193
     }
   ],
