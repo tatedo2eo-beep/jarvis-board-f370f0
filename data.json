@@ -1,12 +1,48 @@
 {
+  "schemaVersion": 2,
   "brand": "Grok Bot × Joe",
-  "updatedAt": "2026-10-22T15:53:14+03:00",
+  "title": "Jarvis Mission Control",
+  "updatedAt": "2026-10-22T15:58:29+03:00",
   "timeZone": "Africa/Cairo",
+  "refreshSeconds": 60,
+  "site": {
+    "label": "Test site",
+    "url": "https://tatedo2eo-beep.github.io/stack-site-5fa39e/",
+    "status": "LIVE (TEST)",
+    "note": "Preview build. Real domain is bought at launch."
+  },
   "headline": {
-    "label": "RECIPES WRITTEN",
+    "label": "Launch recipes",
     "done": 27,
     "total": 193
   },
+  "chapters": [
+    {
+      "name": "Burgers",
+      "done": 13,
+      "total": 13
+    },
+    {
+      "name": "Chicken",
+      "done": 12,
+      "total": 43
+    },
+    {
+      "name": "Cookies",
+      "done": 2,
+      "total": 39
+    },
+    {
+      "name": "Pasta",
+      "done": 0,
+      "total": 57
+    },
+    {
+      "name": "Cakes",
+      "done": 0,
+      "total": 41
+    }
+  ],
   "stages": [
     {
       "name": "Research",
@@ -35,29 +71,107 @@
   ],
   "running": [
     {
-      "name": "Public site v1 is live",
-      "detail": "https://tatedo2eo-beep.github.io/stack-site-5fa39e/",
-      "status": "LIVE (TEST)"
+      "name": "Chef knowledge base",
+      "detail": "New: the chef's reference notes the recipes are written from",
+      "status": "NEW",
+      "node": "Knowledge"
     },
     {
-      "name": "Writing recipes",
-      "detail": "27 of 193 launch recipes: burgers 13/13, chicken 12/43, cookies 2/39 (chicken batch 1 pushed 15:49)",
-      "status": "IN PROGRESS"
+      "name": "Recipes (launch chapters)",
+      "detail": "27 of 193: burgers 13/13, chicken 12/43, cookies 2/39, pasta 0/57, cakes 0/41",
+      "status": "IN PROGRESS",
+      "node": "Recipes"
     },
     {
-      "name": "Calculator, 15 designs, burger v4",
-      "detail": "Site rebuilt and pushed 15:49 with all 34 chapters and Tami photos",
-      "status": "IN PROGRESS"
+      "name": "Per-design photos + 5 design animations",
+      "detail": "A photo set for each site design, plus 5 design animations",
+      "status": "IN PROGRESS",
+      "node": "Animations"
+    },
+    {
+      "name": "Board redesign",
+      "detail": "This board: dark mission-control look, lighter on the phone",
+      "status": "IN PROGRESS",
+      "node": "Jarvis"
     }
   ],
   "waiting": [
     {
-      "name": "Home animation feedback",
-      "detail": "flowing scroll, live on the site"
+      "name": "Brand name",
+      "detail": "Joe to pick",
+      "owner": "Joe"
+    },
+    {
+      "name": "Healthy section",
+      "detail": "Paused",
+      "owner": "Paused"
     },
     {
       "name": "Tax setup",
-      "detail": "pending"
+      "detail": "Pending",
+      "owner": "Pending"
+    }
+  ],
+  "knowledge": {
+    "status": "NEW",
+    "detail": "Chef knowledge base: techniques, ratios and sources behind every recipe",
+    "items": [
+      {
+        "name": "Started",
+        "done": true
+      },
+      {
+        "name": "Linked to recipe writing",
+        "done": false
+      }
+    ]
+  },
+  "animations": {
+    "status": "IN PROGRESS",
+    "detail": "Per-design photos + 5 design animations",
+    "total": 5,
+    "done": null
+  },
+  "milestones": [
+    {
+      "name": "Full plan (19-page PDF)",
+      "date": "Oct 19",
+      "done": true
+    },
+    {
+      "name": "Board live",
+      "date": "Oct 22",
+      "done": true
+    },
+    {
+      "name": "Build go-ahead",
+      "date": "Oct 22",
+      "done": true
+    },
+    {
+      "name": "Test site live",
+      "date": "Oct 22",
+      "done": true
+    },
+    {
+      "name": "Burgers chapter complete (13/13)",
+      "date": "Oct 22",
+      "done": true
+    },
+    {
+      "name": "Brand name picked",
+      "date": "Waiting on Joe",
+      "done": false
+    },
+    {
+      "name": "193 launch recipes",
+      "date": "",
+      "done": false
+    },
+    {
+      "name": "Launch",
+      "date": "",
+      "done": false
     }
   ],
   "graph": {
@@ -66,32 +180,26 @@
     "children": [
       {
         "name": "Claude Code",
-        "icon": "code",
         "active": true
       },
       {
-        "name": "Research",
-        "icon": "search",
-        "active": false
+        "name": "Recipes",
+        "active": true
       },
       {
-        "name": "Recipes",
-        "icon": "drop",
-        "active": false
+        "name": "Knowledge",
+        "active": true
       },
       {
         "name": "Animations",
-        "icon": "anim",
         "active": true
       },
       {
         "name": "Site",
-        "icon": "site",
         "active": false
       },
       {
         "name": "Launch",
-        "icon": "launch",
         "active": false
       }
     ]
@@ -119,6 +227,10 @@
     }
   ],
   "log": [
+    {
+      "t": "Oct 22 15:55",
+      "e": "Board redesign started; chef knowledge base added; brand name waiting on Joe; healthy section paused"
+    },
     {
       "t": "Oct 22 15:54",
       "e": "Check: 27/193 launch recipes, chicken 12/43 next; test site live; anim v3 19 shots"
@@ -215,28 +327,5 @@
       "t": "Oct 19",
       "e": "Legal, age and payment research"
     }
-  ],
-  "toasts": [
-    {
-      "icon": "✓",
-      "title": "BUILD",
-      "status": "STARTED",
-      "kind": "ok"
-    },
-    {
-      "icon": "✓",
-      "title": "CLAUDE CODE",
-      "status": "CONNECTED",
-      "kind": "ok"
-    },
-    {
-      "icon": "✓",
-      "title": "HEALTHY RULES",
-      "status": "SET",
-      "kind": "ok"
-    }
-  ],
-  "toastEveryMs": 4500,
-  "toastShowMs": 2600,
-  "refreshSeconds": 60
+  ]
 }
