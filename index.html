@@ -606,6 +606,7 @@ function drawMap(M){
   for (let j = cand.length - 1, lim = bot; j >= 0; j--){ cand[j].y = Math.min(cand[j].y, lim); lim = cand[j].y - gap; }
   cand.forEach(k => { html += `<div class="chip ${M.chSt(k.c)}" style="left:${Math.min(r.width - 96, k.x + 26)}px;top:${k.y}px">${String(k.c.no).padStart(2, "0")} ${esc(k.c.name.toLowerCase().split(/[ ,&]/)[0])} ${k.c.done}/${k.c.total}</div>`; });
   $("bChips").innerHTML = html;
+  $("bChips").querySelectorAll(".chip").forEach(el => { const over = el.offsetLeft + el.offsetWidth - (r.width - 4); if (over > 0) el.style.left = (el.offsetLeft - over) + "px"; });
 }
 let mapRaf = 0;
 $("bEb").addEventListener("scroll", () => { if (mapRaf || !D) return; mapRaf = requestAnimationFrame(() => { mapRaf = 0; drawMap(model(D)); }); }, {passive: true});
